@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdoptList">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp">
+
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TableRow android:layout_height="160dp">
+
+
+                    <LinearLayout
+                        android:layout_width="195dp"
+                        android:layout_height="160dp"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/img_square"
+                            android:baselineAligned="false"
+                            android:scaleType="fitXY"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/ani1"
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:background="@drawable/img_square"
+                                android:scaleType="fitXY" />
+                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/ani_info1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="동물 정보"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="195dp"
+                        android:layout_height="160dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ani2"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/round_squre_nocol" />
+
+                        <TextView
+                            android:id="@+id/ani_info2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="믹스 남"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+                </TableRow>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp" />
+
+                <TableRow>
+
+                    <LinearLayout
+                        android:layout_width="195dp"
+                        android:layout_height="160dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ani3"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/round_squre_nocol" />
+
+                        <TextView
+                            android:id="@+id/ani_info3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="비숑 남"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="195dp"
+                        android:layout_height="160dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ani4"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/round_squre_nocol" />
+
+                        <TextView
+                            android:id="@+id/ani_info4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="코리안숏헤어 여"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+                </TableRow>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp" />
+
+                <TableRow>
+
+                    <LinearLayout
+                        android:layout_width="195dp"
+                        android:layout_height="160dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ani5"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/round_squre_nocol" />
+
+                        <TextView
+                            android:id="@+id/ani_info5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="비숑 남"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="195dp"
+                        android:layout_height="160dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ani6"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/round_squre_nocol" />
+
+                        <TextView
+                            android:id="@+id/ani_info6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="말티즈 여"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+                </TableRow>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp" />
+
+                <TableRow>
+
+                    <LinearLayout
+                        android:layout_width="195dp"
+                        android:layout_height="160dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ani7"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/round_squre_nocol" />
+
+                        <TextView
+                            android:id="@+id/ani_info7"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="동물 정보"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="195dp"
+                        android:layout_height="160dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ani8"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/round_squre_nocol" />
+
+                        <TextView
+                            android:id="@+id/ani_info8"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="포메라니안 남"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+                </TableRow>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp" />
+
+                <TableRow>
+
+                    <LinearLayout
+                        android:layout_width="195dp"
+                        android:layout_height="160dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ani9"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/round_squre_nocol" />
+
+                        <TextView
+                            android:id="@+id/ani_info9"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="시바 여"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="195dp"
+                        android:layout_height="160dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ani10"
+                            android:layout_width="130dp"
+                            android:layout_height="130dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/round_squre_nocol" />
+
+                        <TextView
+                            android:id="@+id/ani_info10"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:text="동물 정보"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+                </TableRow>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp" />
+
+            </TableLayout>
+        </ScrollView>
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

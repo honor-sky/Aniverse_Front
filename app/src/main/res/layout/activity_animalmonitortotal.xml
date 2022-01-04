@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AnimalMonitorTotal">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="145dp"
+            android:layout_marginTop="15dp"
+            android:text="소식 공유"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/news_add_btn"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="330dp"
+            android:layout_marginTop="3dp"
+            android:background="#00ff0000"
+            android:gravity="center"
+            android:text="+"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="15dp"
+            android:background="#00ff0000"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+
+        <FrameLayout
+            android:layout_width="350dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/wround_square"
+            android:elevation="10dp">
+
+            <ImageView
+                android:id="@+id/ani_img"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                tools:srcCompat="@tools:sample/avatars" />
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/adoptdate"
+            android:layout_width="170dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="230dp"
+            android:text="입양날짜 2021/09/02"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="@drawable/wround_square">
+        </Button>
+
+
+        <FrameLayout
+            android:layout_width="350dp"
+            android:layout_height="550dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="280dp"
+            android:background="@drawable/wround_square"
+            android:elevation="10dp">
+
+            <Button
+                android:id="@+id/diagno_btn"
+                android:layout_width="110dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/button_select"
+                android:elevation="10dp"
+                android:text="검진결과"
+                android:textColor="@drawable/text_select2"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <Button
+                android:id="@+id/review_btn"
+                android:layout_width="110dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="190dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/button_select"
+                android:elevation="10dp"
+                android:text="소식"
+                android:textColor="@drawable/text_select2"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <FrameLayout
+                android:id="@+id/news_container"
+                android:layout_width="match_parent"
+                android:layout_height="440dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="70dp"
+                android:layout_weight="1" />
+
+        </FrameLayout>
+
+
+
+    </FrameLayout>
+</RelativeLayout>
