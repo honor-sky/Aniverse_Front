@@ -123,7 +123,7 @@
                     android:layout_width="310dp"
                     android:layout_height="15dp" />
                 <TextView
-                    android:id="@+id/findspot"
+                    android:id="@+id/findSpot"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="발견 장소 : "
@@ -133,7 +133,7 @@
                     android:layout_width="310dp"
                     android:layout_height="15dp" />
                 <TextView
-                    android:id="@+id/animalinfo"
+                    android:id="@+id/animalInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="소개 : "
@@ -153,7 +153,7 @@
                     android:layout_width="310dp"
                     android:layout_height="15dp" />
                 <TextView
-                    android:id="@+id/adoptcondition"
+                    android:id="@+id/adoptCondition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="입양 조건 : "
@@ -175,7 +175,7 @@
                     android:layout_width="310dp"
                     android:layout_height="15dp" />
                 <TextView
-                    android:id="@+id/centername"
+                    android:id="@+id/centerName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="센터명 : "
@@ -185,7 +185,7 @@
                     android:layout_width="310dp"
                     android:layout_height="15dp" />
                 <TextView
-                    android:id="@+id/centeraddress"
+                    android:id="@+id/centerAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="센터 주소 : "
@@ -195,7 +195,7 @@
                     android:layout_width="310dp"
                     android:layout_height="15dp" />
                 <TextView
-                    android:id="@+id/centerphoneNum"
+                    android:id="@+id/centerPhoneNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="센터 전화번호 : "

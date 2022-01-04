@@ -191,7 +191,25 @@
                     android:layout_height="match_parent">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/animalinfo"
+                        android:id="@+id/findSpot"
+                        android:layout_width="310dp"
+                        android:layout_height="wrap_content"
+                        android:hint="발견 장소" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="19dp"
+                    android:layout_weight="1" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Theme.AppCompat.DayNight.NoActionBar"
+                    android:layout_width="310dp"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/animalInfo"
                         android:layout_width="310dp"
                         android:layout_height="wrap_content"
                         android:hint="소개"
@@ -242,7 +260,7 @@
                     android:layout_height="match_parent">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/protectcondition"
+                        android:id="@+id/protectCondition"
                         android:layout_width="310dp"
                         android:layout_height="wrap_content"
                         android:hint="보호 조건"

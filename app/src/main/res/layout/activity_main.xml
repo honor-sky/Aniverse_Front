@@ -84,7 +84,7 @@
                 <TableRow>
 
                     <ImageView
-                        android:id="@+id/ani1"
+                        android:id="@+id/ani_img1"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginTop="10dp"
@@ -92,16 +92,7 @@
                         android:src="@drawable/round_squre_nocol" />
 
                     <ImageView
-                        android:id="@+id/ani2"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="10dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/round_squre_nocol" />
-
-                    <ImageView
-                        android:id="@+id/ani3"
+                        android:id="@+id/ani_img2"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginStart="15dp"
@@ -110,7 +101,16 @@
                         android:src="@drawable/round_squre_nocol" />
 
                     <ImageView
-                        android:id="@+id/ani4"
+                        android:id="@+id/ani_img3"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/round_squre_nocol" />
+
+                    <ImageView
+                        android:id="@+id/ani_img4"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginStart="15dp"
@@ -136,7 +136,7 @@
                 <TableRow>
 
                     <ImageView
-                        android:id="@+id/fund1"
+                        android:id="@+id/fund_img1"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginTop="10dp"
@@ -144,16 +144,7 @@
                         android:src="@drawable/round_squre_nocol" />
 
                     <ImageView
-                        android:id="@+id/fund2"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="10dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/round_squre_nocol" />
-
-                    <ImageView
-                        android:id="@+id/fund3"
+                        android:id="@+id/fund_img2"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginStart="15dp"
@@ -162,7 +153,16 @@
                         android:src="@drawable/round_squre_nocol" />
 
                     <ImageView
-                        android:id="@+id/fund4"
+                        android:id="@+id/fund_img3"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/round_squre_nocol" />
+
+                    <ImageView
+                        android:id="@+id/fund_img4"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginStart="15dp"
@@ -188,7 +188,7 @@
                 <TableRow>
 
                     <ImageView
-                        android:id="@+id/item1"
+                        android:id="@+id/item_img1"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginTop="10dp"
@@ -196,16 +196,7 @@
                         android:src="@drawable/round_squre_nocol" />
 
                     <ImageView
-                        android:id="@+id/item2"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="10dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/round_squre_nocol" />
-
-                    <ImageView
-                        android:id="@+id/item3"
+                        android:id="@+id/item_img2"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginStart="15dp"
@@ -214,7 +205,16 @@
                         android:src="@drawable/round_squre_nocol" />
 
                     <ImageView
-                        android:id="@+id/item4"
+                        android:id="@+id/item_img3"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/round_squre_nocol" />
+
+                    <ImageView
+                        android:id="@+id/item_img4"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_marginStart="15dp"

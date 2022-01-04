@@ -225,7 +225,7 @@
                     android:layout_height="match_parent">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/findspot"
+                        android:id="@+id/findSpot"
                         android:layout_width="310dp"
                         android:layout_height="wrap_content"
                         android:hint="발견장소"
@@ -242,7 +242,7 @@
                     android:layout_height="match_parent">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/animalinfo"
+                        android:id="@+id/animalInfo"
                         android:layout_width="310dp"
                         android:layout_height="wrap_content"
                         android:hint="소개"

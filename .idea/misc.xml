@@ -7,6 +7,7 @@
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/drawable/background.xml" value="0.35625" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/drawable/border.xml" value="0.35625" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/drawable/bottombar_layout.xml" value="0.35625" />
+        <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/drawable/ic_jelly_icon2.xml" value="0.19895833333333332" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/drawable/ic_launcher_background.xml" value="0.35625" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/drawable/ic_launcher_background2.xml" value="0.35625" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/drawable/ic_market_icon.xml" value="0.35625" />
@@ -24,9 +25,15 @@
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_animalmonitorupload.xml" value="0.3283514492753623" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_guardapply.xml" value="0.20018115942028986" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_guardapplycomfirm.xml" value="0.3283514492753623" />
+        <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_guardapplyconfirm.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_jellyshop.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_jellyshoppay.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_loginnormal.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_main.xml" value="0.3359375" />
+        <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_mypage.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_protectanimalupload.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_protectdetail.xml" value="0.3283514492753623" />
+        <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_signup.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/fragment_adoptlist.xml" value="0.3283514492753623" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/fragment_animalmonitordiagno.xml" value="0.20018115942028986" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/fragment_animalmonitorreview.xml" value="0.20018115942028986" />
