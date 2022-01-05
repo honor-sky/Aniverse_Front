@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".ProtectDetail">
+
+    <FrameLayout
+        android:layout_width="417dp"
+        android:layout_height="150dp"
+        android:background="@drawable/background">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="125dp"
+            android:layout_marginTop="20dp"
+            android:text="입양동물 정보"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="15dp"
+            android:background="#00ff0000"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="415dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/top_round_wsquare">
+
+        <ImageView
+            android:id="@+id/ani_img"
+            android:layout_width="350dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/round_squre_nocol"/>
+        <ScrollView
+            android:layout_width="361dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="330dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="10dp" />
+                <TextView
+                    android:id="@+id/animal_information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="동물 정보"
+                    android:textColor="#7ED687"
+                    android:textSize="24sp"
+                    android:textStyle="bold">
+                </TextView>
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="19dp" />
+                <TextView
+                    android:id="@+id/species_gender_age"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="품종: 믹스   성별: 여    나이: 2세"
+                    android:textSize="20dp">
+                </TextView>
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="15dp" />
+                <TextView
+                    android:id="@+id/neutering"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="중성화 여부: 무"
+                    android:textSize="20dp">
+                </TextView>
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="15dp" />
+                <TextView
+                    android:id="@+id/weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="무게 : 2kg"
+                    android:textSize="20dp">
+                </TextView>
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="15dp" />
+                <TextView
+                    android:id="@+id/vaccination"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="접종 여부 : "
+                    android:textSize="20dp">
+                </TextView>
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="15dp" />
+                <TextView
+                    android:id="@+id/disease"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="질병 여부 : "
+                    android:textSize="20dp">
+                </TextView>
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="15dp" />
+                <TextView
+                    android:id="@+id/findSpot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="발견 장소 : "
+                    android:textSize="20dp">
+                </TextView>
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="15dp" />
+                <TextView
+                    android:id="@+id/animalInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="소개 : "
+                    android:textSize="20dp">
+                </TextView>
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="15dp" />
+                <TextView
+                    android:id="@+id/deadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="보호 마감일 : "
+                    android:textSize="20dp">
+                </TextView>
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="15dp" />
+                <TextView
+                    android:id="@+id/period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="보호 기간 : "
+                    android:textSize="20dp">
+                </TextView>
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="15dp" />
+                <TextView
+                    android:id="@+id/protectCondition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="보호 조건 : "
+                    android:textSize="20dp">
+                </TextView>
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="15dp" />
+                <TextView
+                    android:id="@+id/center_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="보호소 정보"
+                    android:textColor="#7ED687"
+                    android:textSize="24sp"
+                    android:textStyle="bold">
+                </TextView>
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="15dp" />
+                <TextView
+                    android:id="@+id/centerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="센터명 : "
+                    android:textSize="20dp">
+                </TextView>
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="15dp" />
+                <TextView
+                    android:id="@+id/centerAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="센터 주소 : "
+                    android:textSize="20dp">
+                </TextView>
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="15dp" />
+                <TextView
+                    android:id="@+id/centerPhoneNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="센터 전화번호 : "
+                    android:textSize="20dp">
+                </TextView>
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="640dp"
+            android:background="#00ffffff">
+
+            <Button
+                android:id="@+id/request_btn"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/gradient_round_squre"
+                android:text="신청하기"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+        </FrameLayout>
+
+    </FrameLayout>
+
+</RelativeLayout>
