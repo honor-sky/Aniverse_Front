@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".AnimalList">
+
+
+    <FrameLayout
+        android:layout_width="417dp"
+        android:layout_height="150dp"
+        android:background="@drawable/background">
+
+        <Button
+            android:id="@+id/add_btn"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="325dp"
+            android:layout_marginTop="10dp"
+            android:background="#00ff0000"
+            android:gravity="center"
+            android:text="+"
+            android:textColor="#000000"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="135dp"
+            android:layout_marginTop="20dp"
+            android:text="입양/임시보호"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="415dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/top_round_wsquare">
+
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/main_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="640dp"
+            android:background="@android:color/white">
+
+            <ImageButton
+                android:id="@+id/adopt_btn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="20dp"
+                android:background="#00ffffff"
+                app:srcCompat="@drawable/ic_adopt_icon" />
+
+            <ImageButton
+                android:id="@+id/funding_btn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="100dp"
+                android:background="#00ffffff"
+                app:srcCompat="@drawable/ic_funding_icon" />
+
+            <ImageButton
+                android:id="@+id/home_btn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="180dp"
+                android:background="#00ffffff"
+                app:srcCompat="@drawable/ic_baseline_pets_24"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/market_btn"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="260dp"
+                android:layout_marginTop="4dp"
+                android:background="#00ffffff"
+                app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+
+            <ImageButton
+                android:id="@+id/mypage_btn"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="330dp"
+                android:layout_marginTop="4dp"
+                android:background="#00ffffff"
+                app:srcCompat="@drawable/ic_baseline_person_24" />
+
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+        <Button
+            android:id="@+id/adopt_tab"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="18dp"
+            android:background="#00ff0000"
+            android:text="입양"
+            android:textColor="@drawable/text_select"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/protect_tab"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="18dp"
+            android:background="#00ff0000"
+            android:text="임시보호"
+            android:textColor="@drawable/text_select"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/complete_tab"
+            android:layout_width="100dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="270dp"
+            android:layout_marginTop="18dp"
+            android:background="#00ff0000"
+            android:text="완료"
+            android:textColor="@drawable/text_select"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <FrameLayout
+            android:id="@+id/aniaml_list_container"
+            android:layout_width="match_parent"
+            android:layout_height="470dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="90dp"
+            android:layout_weight="1" />
+
+
+    </FrameLayout>
+
+
+
+</RelativeLayout>
