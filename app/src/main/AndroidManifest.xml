@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.gyeongsoton.aniverse_front">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,14 +12,72 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Aniverse_Front">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".AdoptAnimalUpload"
+            android:exported="true"/>
+        <activity
+            android:name=".AdoptDetail"
+            android:exported="true"/>
+        <activity
+            android:name=".AnimalList"
+            android:exported="true"/>
+        <activity
+            android:name=".AnimalMonitorTotal"
+            android:exported="true"/>
+        <activity
+            android:name=".AnimalMonitorUpload"
+            android:exported="true"/>
+        <activity
+            android:name=".FundingDetail"
+            android:exported="true"/>
+        <activity
+            android:name=".FundingList"
+            android:exported="true"/>
+        <activity
+            android:name=".FundingMonitorTotal"
+            android:exported="true"/>
+        <activity
+            android:name=".FundingMonitorUpload"
+            android:exported="true"/>
+        <activity
+            android:name=".FundingUpload"
+            android:exported="true"/>
+        <activity
+            android:name=".GuardApply"
+            android:exported="true"/>
+        <activity
+            android:name=".GuardApplyConfirm"
+            android:exported="true"/>
+        <activity
+            android:name=".JellyShop"
+            android:exported="true"/>
+        <activity
+            android:name=".JellyShopPay"
+            android:exported="true"/>
+        <activity
+            android:name=".LoginNormal"
+            android:exported="true"/>
+        <activity
+            android:name=".Main"
+            android:exported="true"/>
+        <activity
+            android:name=".Mypage"
+            android:exported="true"/>
+        <activity
+            android:name=".ProtectAnimalUpload"
+            android:exported="true"/>
+        <activity
+            android:name=".ProtectDetail"
+            android:exported="true"/>
+        <activity
+            android:name=".Signup"
+            android:exported="true"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+       <!-- <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>-->
+
     </application>
 
 </manifest>
