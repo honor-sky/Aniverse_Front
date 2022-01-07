@@ -77,11 +77,12 @@
             android:layout_marginTop="30dp">
 
             <TableLayout
+                android:id="@+id/tablelayout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TableRow>
+               <TableRow>
 
                     <ImageView
                         android:id="@+id/ani_img1"
@@ -129,6 +130,7 @@
             android:layout_marginTop="170dp">
 
             <TableLayout
+                android:id="@+id/tablelayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -181,6 +183,7 @@
             android:layout_marginTop="310dp">
 
             <TableLayout
+                android:id="@+id/tablelayout3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
