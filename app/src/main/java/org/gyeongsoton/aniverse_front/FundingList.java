@@ -49,9 +49,10 @@ public class FundingList extends AppCompatActivity {
                     boolean success = jsonResponse.getBoolean("isSuccess");
                     if (success) {
 
+                        System.out.println("펀딩 성공");
+
                         fundingImage = jsonResponse.getString("fundingImage");
                         fundingName = jsonResponse.getString("fundingName");
-
 
                         //첫번째 펀딩 정보 셋팅
                         fund_info1.setText(fundingName);

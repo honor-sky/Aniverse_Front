@@ -68,7 +68,7 @@ public class FundingDetail extends AppCompatActivity {
                 }
             }
         };
-        fundingdetail_Request request = new fundingdetail_Request(responseListener); //입양 진행중
+        fundingdetail_Request request = new fundingdetail_Request("16",responseListener); //입양 진행중
         RequestQueue queue = Volley.newRequestQueue(FundingDetail.this );
         queue.add(request);
 
