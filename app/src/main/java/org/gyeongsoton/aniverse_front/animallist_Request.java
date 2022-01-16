@@ -8,11 +8,14 @@ import java.util.Map;
 
 public class animallist_Request extends StringRequest {
     //서버 url 설정(php파일 연동)
-    final static  private String URL=" http://3.36.175.200/adopt/list";
+    final static  private String URL="http://3.36.175.200/adopt/list";
     private Map<String, String> map;
 
-    public animallist_Request( Response.Listener<String> listener){  //입양, 임시보호, 완료 함께 사용 예정 //서버에 데이터 요청 시 구분 인자 필요할듯
-        super(Method.GET, URL, listener,null);
+    public animallist_Request(String status, Response.Listener<String> listener){  //입양, 임시보호, 완료 함께 사용 예정 //서버에 데이터 요청 시 구분 인자 필요할듯
+        super(Method.POST, URL, listener,null);
+
+        map = new HashMap<>();
+        map.put("status", status);
 
     }
 

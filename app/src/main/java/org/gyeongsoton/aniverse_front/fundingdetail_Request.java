@@ -16,8 +16,11 @@ public class fundingdetail_Request extends StringRequest {
     final static private String URL = "http://3.36.175.200/funding/ing";
     private Map<String, String> map;
 
-    public fundingdetail_Request(Response.Listener<String> listener) {
-        super(Method.GET, URL, listener, null); //서버에 요청
+    public fundingdetail_Request(String fundingIdx,Response.Listener<String> listener) {
+        super(Method.POST, URL, listener, null); //서버에 요청
+
+        map = new HashMap<>();
+        map.put("fundingIdx",fundingIdx);
 
     }
 
