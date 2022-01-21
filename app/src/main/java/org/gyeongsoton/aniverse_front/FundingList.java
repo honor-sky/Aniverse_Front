@@ -28,17 +28,12 @@ public class FundingList extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_fundinglist);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_fundinglist);
-
 
         fund_img1 = findViewById(R.id.fund_img1);
         fund_info1 = findViewById(R.id.fund_info1);
         add_btn = findViewById(R.id.add_btn);
-
-
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
