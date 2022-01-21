@@ -74,6 +74,9 @@
         <activity
             android:name=".Signup"
             android:exported="true"/>
+        <activity
+            android:name=".AnimalListRecycler"
+            android:exported="true"/>
 
        <!-- <intent-filter>
             <action android:name="android.intent.action.MAIN" />
