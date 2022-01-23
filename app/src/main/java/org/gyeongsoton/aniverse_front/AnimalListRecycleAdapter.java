@@ -48,6 +48,7 @@ public class AnimalListRecycleAdapter extends RecyclerView.Adapter<AnimalListRec
         View view = inflater.inflate(R.layout.recyclerview_animallistitem,parent,false);
         AnimalListRecycleAdapter.ViewHolder vh = new AnimalListRecycleAdapter.ViewHolder(view);
 
+        System.out.println("viewholder!");
         //ViewHolder로 리턴
         return vh;
     }
@@ -69,6 +70,8 @@ public class AnimalListRecycleAdapter extends RecyclerView.Adapter<AnimalListRec
                 v.getContext().startActivity(intent);
             }
         });
+
+        System.out.println("Bind:"+ position);
     }
 
     //RecyclerView의 총 개수
