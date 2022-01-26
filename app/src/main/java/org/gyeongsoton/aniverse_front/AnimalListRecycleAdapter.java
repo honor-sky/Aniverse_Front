@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class AnimalListRecycleAdapter extends RecyclerView.Adapter<AnimalListRecycleAdapter.ViewHolder> {
     //어댑터에 들어갈 list
     private ArrayList<AnimalListRecyclerItem> mData= null;
+    private Context mContext;
 
     // 아이템 뷰를 저장하는 뷰홀더 클래스
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -35,8 +36,9 @@ public class AnimalListRecycleAdapter extends RecyclerView.Adapter<AnimalListRec
     }
 
     // 생성자에서 데이터 리스트 객체를 전달받음
-    public AnimalListRecycleAdapter(ArrayList<AnimalListRecyclerItem> data){
+    public AnimalListRecycleAdapter(Context mContext,ArrayList<AnimalListRecyclerItem> data){
         mData = data;
+        this.mContext = mContext;
     }
 
     // 아이템 뷰를 위한 뷰홀더 객체를 생성하여 리턴
@@ -61,7 +63,7 @@ public class AnimalListRecycleAdapter extends RecyclerView.Adapter<AnimalListRec
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         AnimalListRecyclerItem item = mData.get(position);
 
-        holder.ani_img.setImageDrawable(item.getImage());
+        Glide.with(mContext).load(item.getImage()).into(holder.ani_img);
         holder.ani_info.setText(item.getInfo());
 
         // 이미지를 클릭하면 세부화면으로 이동

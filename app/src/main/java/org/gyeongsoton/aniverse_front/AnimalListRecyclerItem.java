@@ -7,10 +7,10 @@ import java.net.URI;
 
 // 추후 아이템에 어떤 값이 들어갈지
 public class AnimalListRecyclerItem {
-    private Drawable animalImage;
+    private String animalImage;
     private String animalInfo;
 
-    public void setImage(Drawable img){
+    public void setImage(String img){
         animalImage=img;
     }
 
@@ -18,7 +18,7 @@ public class AnimalListRecyclerItem {
         this.animalInfo=info;
     }
 
-    public Drawable getImage(){ return animalImage; }
+    public String getImage(){ return animalImage; }
 
     public String getInfo(){
         return animalInfo;

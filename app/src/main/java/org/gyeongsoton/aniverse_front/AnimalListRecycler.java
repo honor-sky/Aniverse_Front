@@ -1,6 +1,7 @@
 package org.gyeongsoton.aniverse_front;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -30,11 +31,14 @@ public class AnimalListRecycler extends AppCompatActivity {
     RecyclerView recyclerView;
     AnimalListRecycleAdapter aniAdapter;
     ArrayList<AnimalListRecyclerItem> mList;
+    private Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animallistrecycler);
+
+        mContext = this;
 
         //recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -86,16 +90,6 @@ public class AnimalListRecycler extends AppCompatActivity {
         });
     }
 
-    public void recyclerAdapter(){
-        mList = new ArrayList<>();
-        //어댑터 객체
-        aniAdapter = new AnimalListRecycleAdapter(mList);
-        //리사이클러뷰 객체
-        recyclerView = (RecyclerView) findViewById(R.id.aniRecyclerView);
-        recyclerView.setAdapter(aniAdapter);
-        //레이아웃 지정
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-    }
 
     public void makeRequest(int num){
 
@@ -116,7 +110,7 @@ public class AnimalListRecycler extends AppCompatActivity {
 
                         mList = new ArrayList<>();
                         //어댑터 객체
-                        aniAdapter = new AnimalListRecycleAdapter(mList);
+                        aniAdapter = new AnimalListRecycleAdapter(mContext,mList);
                         //리사이클러뷰 객체
                         recyclerView = (RecyclerView) findViewById(R.id.aniRecyclerView);
                         recyclerView.setAdapter(aniAdapter);
