@@ -120,7 +120,7 @@ public class AdoptListRecycler extends Fragment {
                             try {
                                 obj = (JSONObject)respArr.get(i);
                                 item.setImage(obj.getString("animalImage"));
-                                item.setInfo(obj.getString("animalSpecies")+" "+obj.getString("animalAge"));
+                                item.setInfo(obj.getString("animalSpecies")+" "+obj.getString("animalAge")+"세");
                                 aniAdapter.setArrayData(item);
 
                             } catch (JSONException e) {
