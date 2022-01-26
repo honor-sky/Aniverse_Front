@@ -1,13 +1,16 @@
 package org.gyeongsoton.aniverse_front;
 
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
+
+import java.net.URI;
 
 // 추후 아이템에 어떤 값이 들어갈지
 public class AnimalListRecyclerItem {
-    private Integer animalImage;
+    private Drawable animalImage;
     private String animalInfo;
 
-    public void setImage(Integer img){
+    public void setImage(Drawable img){
         animalImage=img;
     }
 
@@ -15,9 +18,7 @@ public class AnimalListRecyclerItem {
         this.animalInfo=info;
     }
 
-    public Integer getImage(){
-        return animalImage;
-    }
+    public Drawable getImage(){ return animalImage; }
 
     public String getInfo(){
         return animalInfo;

@@ -7,6 +7,7 @@
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/drawable/background.xml" value="0.35625" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/drawable/border.xml" value="0.35625" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/drawable/bottombar_layout.xml" value="0.35625" />
+        <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/drawable/fragment_adoptlistrecycler.xml" value="0.17708333333333334" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/drawable/ic_jelly_icon2.xml" value="0.19895833333333332" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/drawable/ic_launcher_background.xml" value="0.35625" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/drawable/ic_launcher_background2.xml" value="0.35625" />
@@ -21,8 +22,9 @@
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_adoptanimalupload.xml" value="0.20018115942028986" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_adoptdetail.xml" value="0.3283514492753623" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_adoptlistrecycler.xml" value="0.3359375" />
-        <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_animallist.xml" value="0.3283514492753623" />
+        <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_animallist.xml" value="0.1940928270042194" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_animallistrecycler.xml" value="0.33" />
+        <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_animallistrecyclerfragment.xml" value="0.253125" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_animalmonitortotal.xml" value="0.3283514492753623" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_animalmonitorupload.xml" value="0.3283514492753623" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_fundingdetail.xml" value="0.33177083333333335" />
@@ -41,11 +43,14 @@
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_protectanimalupload.xml" value="0.33177083333333335" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_protectdetail.xml" value="0.3283514492753623" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/activity_signup.xml" value="0.17864583333333334" />
-        <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/fragment_adoptlist.xml" value="0.3283514492753623" />
+        <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/fragment_adoptlist.xml" value="0.2598870056497175" />
+        <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/fragment_adoptlistrecycler.xml" value="0.25" />
+        <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/fragment_animallistrecycler.xml" value="0.1" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/fragment_animalmonitordiagno.xml" value="0.20018115942028986" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/fragment_animalmonitorreview.xml" value="0.20018115942028986" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/fragment_completelist.xml" value="0.3283514492753623" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/fragment_protectlist.xml" value="0.3283514492753623" />
+        <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/list_layout.xml" value="0.1796875" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/recycler_adoptlistitem.xml" value="0.3359375" />
         <entry key="..\:/Users/alswj/AndroidStudioProjects/Aniverse_Front/app/src/main/res/layout/recyclerview_animallistitem.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/Aniverse_Front/app/src/main/res/drawable/background.xml" value="0.19427083333333334" />

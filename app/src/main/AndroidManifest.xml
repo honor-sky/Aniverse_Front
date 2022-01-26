@@ -15,75 +15,71 @@
         android:theme="@style/Theme.Aniverse_Front"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".AnimalListRecyclerFragment"
+            android:exported="true" />
+        <activity
             android:name=".AdoptAnimalUpload"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".AdoptDetail"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".AnimalList"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".AnimalMonitorTotal"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".AnimalMonitorUpload"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".FundingDetail"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".FundingList"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".FundingMonitorTotal"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".FundingMonitorUpload"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".FundingUpload"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".GuardApply"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".GuardApplyConfirm"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".JellyShop"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".JellyShopPay"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".LoginNormal"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".Main"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".Mypage"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ProtectAnimalUpload"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ProtectDetail"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".Signup"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".AnimalListRecycler"
-            android:exported="true"/>
-
-       <!-- <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>-->
-
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -96,26 +96,15 @@ public class AnimalList extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        /*ImageButton market_btn = (ImageButton)findViewById(R.id.market_btn);
-        market_btn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Market_list.class);
-                startActivity(intent);
-            }
-        });*/
-
         ImageButton market_btn = (ImageButton)findViewById(R.id.market_btn);
         market_btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),AnimalListRecycler.class);
+                Intent intent = new Intent(getApplicationContext(),AnimalListRecyclerFragment.class);
                 startActivity(intent);
             }
         });
-
         ImageButton mypage_btn = (ImageButton)findViewById(R.id.mypage_btn);
         mypage_btn.setOnClickListener(new View.OnClickListener() {
 

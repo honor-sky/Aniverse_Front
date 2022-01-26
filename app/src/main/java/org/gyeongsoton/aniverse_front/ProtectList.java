@@ -20,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.concurrent.TimeUnit;
@@ -40,14 +41,12 @@ public class ProtectList extends Fragment {
 
     @Override
     public void onDestroyView() {
-        // Log.d(this.getClass().getSimpleName(), "onDestroyView()");
         super.onDestroyView();
         System.out.println("임시보호: onDestroyView 실행");
     }
 
     @Override
     public void onDestroy() {
-        // Log.d(this.getClass().getSimpleName(), "onDestroy()");
         super.onDestroy();
         System.out.println("임시보호: onDestroy 실행");
     }
@@ -71,33 +70,32 @@ public class ProtectList extends Fragment {
             public void onResponse(String response) {
                 try {
 
-                    JSONObject jsonResponse = new JSONObject(response); //서버 응답 받아 json 파일 받아옴
-                    boolean success = jsonResponse.getBoolean("isSuccess");
+                    JSONObject jsonResponse = new JSONObject(response);
+                    boolean success = jsonResponse.getBoolean("isSuccess"); //reponse 제대로 왔는지 확인
+
                     if (success) {
                         System.out.println("성공");
 
-                        //DB에서 가져온 이미지(종, 나이) 개수 만큼 배열로 객체 생성
+                        //데이터 배열 전체 파싱
+                        JSONArray respArr = (JSONArray) jsonResponse.get("adoptListRows");
+                        //반복문으로 하나하나 파싱
+                        for(int i=0;i<respArr.length();i++){
+                            Image = jsonResponse.getString("protectImage");
+                            Info=jsonResponse.getString("animalSpecies");
+                            System.out.println(Image);
 
-                        Image = jsonResponse.getString("protectImage");
-                        Info=jsonResponse.getString("animalSpecies");
-                        System.out.println(Image);
-
-                        Glide.with(ProtectList.this).load(Image).into(ani_img1);
-                        ani_img1.setClipToOutline(true);
-
-                        // ImageLoadTask task = new ImageLoadTask(Image, ani_img1);
-                        //task.execute();
-
-                       /* ani_info1.setText(Info);
-
+                            Glide.with(ProtectList.this).load(Image).into(ani_img1);
+                            ani_img1.setClipToOutline(true);
+                        }
+                        /*
+                        sleep을 통해 이미지가 로드가 프래그먼트 죽은 후 로드 되는 상황을 해결하려고 함
                         try {
                                 TimeUnit.SECONDS.sleep(3);
 
                         }catch(Exception e) {
                             System.out.println(e);
-                        }
-                        Glide.with(ProtectList.this).load(Image).into(ani_img1);
-                        ani_img1.setClipToOutline(true); */
+                        }*/
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class AnimalListRecycleAdapter extends RecyclerView.Adapter<AnimalListRecycleAdapter.ViewHolder> {
@@ -59,7 +61,7 @@ public class AnimalListRecycleAdapter extends RecyclerView.Adapter<AnimalListRec
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         AnimalListRecyclerItem item = mData.get(position);
 
-        holder.ani_img.setImageResource(item.getImage());
+        holder.ani_img.setImageDrawable(item.getImage());
         holder.ani_info.setText(item.getInfo());
 
         // 이미지를 클릭하면 세부화면으로 이동
