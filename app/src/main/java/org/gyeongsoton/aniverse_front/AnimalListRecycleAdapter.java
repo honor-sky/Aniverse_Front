@@ -64,6 +64,7 @@ public class AnimalListRecycleAdapter extends RecyclerView.Adapter<AnimalListRec
         AnimalListRecyclerItem item = mData.get(position);
 
         Glide.with(mContext).load(item.getImage()).into(holder.ani_img);
+        holder.ani_img.setClipToOutline(true);
         holder.ani_info.setText(item.getInfo());
 
         // 이미지를 클릭하면 세부화면으로 이동
