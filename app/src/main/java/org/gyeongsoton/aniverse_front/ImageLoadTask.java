@@ -34,6 +34,7 @@ public class ImageLoadTask extends AsyncTask <String, Void, String> {
 
     @Override
     protected String doInBackground(String... voids) {
+
         //System.out.println("이미지로드 전");
 
         //System.out.println("이미지로드 후");

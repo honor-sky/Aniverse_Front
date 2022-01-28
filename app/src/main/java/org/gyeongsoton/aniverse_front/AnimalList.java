@@ -34,24 +34,28 @@ import org.json.JSONObject;
 
 public class AnimalList extends AppCompatActivity {
 
-    private ImageView ani_1;
-    private TextView textView1;
-
     //프래그먼트 식별 변수
     private final int Fragment_1 = 1;
     private final int Fragment_2 = 2;
     private final int Fragment_3 = 3;
 
+    private ImageView ani_1;
+    private TextView textView1;
+
     //프래그먼트 객체 생성(객체 변수를 전역변수로 만들며 프래그먼트 오류 해결) //Animal Activity가 생성되면서 그 위에 올라갈 프래그먼트들도 함께 생성
-    Fragment fragment1=new AdoptList();
-    Fragment fragment2=new ProtectList();
-    Fragment fragment3=new CompleteList();
+    Fragment fragment1;
+    Fragment fragment2;
+    Fragment fragment3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_animallist);
+
+        fragment1=new AdoptList();
+        fragment2=new ProtectList();
+        fragment3=new CompleteList();
 
         Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler());
 
@@ -124,8 +128,6 @@ public class AnimalList extends AppCompatActivity {
             @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                //fragment1 = new AdoptList();
-                //sleep(3);
                 FragmentView(Fragment_1);
                 adopt_tab.setPressed(true);
                 protect_tab.setPressed(false);
@@ -139,7 +141,6 @@ public class AnimalList extends AppCompatActivity {
             @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                //fragment2 = new ProtectList();
                 FragmentView(Fragment_2);
                 protect_tab.setPressed(true);
                 adopt_tab.setPressed(false);
@@ -153,7 +154,6 @@ public class AnimalList extends AppCompatActivity {
             @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                //fragment3 = new CompleteList();
                 FragmentView(Fragment_3);
                 complete_tab.setPressed(true);
                 adopt_tab.setPressed(false);
@@ -176,7 +176,7 @@ public class AnimalList extends AppCompatActivity {
         switch (fragment) { //입양
             case 1:
                 //Fragment fragment1 = new AdoptList();
-                getSupportFragmentManager().beginTransaction().replace(R.id.aniaml_list_container,fragment1).commit(); //프래그먼트 변경 //변경사항 반영 되나?....
+                getSupportFragmentManager().beginTransaction().replace(R.id.aniaml_list_container,fragment1).commit();
                 break;
 
             case 2: //임시보호

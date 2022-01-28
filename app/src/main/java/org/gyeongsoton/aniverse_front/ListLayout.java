@@ -7,7 +7,6 @@ import android.widget.LinearLayout;
 
 public class ListLayout extends LinearLayout{
 
-
     public ListLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
 
@@ -23,4 +22,6 @@ public class ListLayout extends LinearLayout{
         LayoutInflater inflater =(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.list_layout,this,true);
     }
+
+
 }
