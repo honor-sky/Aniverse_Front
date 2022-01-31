@@ -9,17 +9,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class adoptanimalupload_Request extends StringRequest {
-    final static private String URL = "http://3.34.166.156/";
+    final static private String URL = "http://3.36.175.200/adopt/animalinfo";
     private Map<String, String> map;
     //private Map<String, String>parameters;
 
-    public adoptanimalupload_Request(String Species,String Sex,String Neutering,String Age,String Vaccination,String Disease,
+    public adoptanimalupload_Request(String Image,String Species,String Gender,String Weight,String Neutering,String Age,String Vaccination,String Disease,
                                      String Deadline,String FindSpot,String AnimalInfo,String Condition,Response.Listener<String> listener) {
         super(Request.Method.POST, URL, listener, null); //서버에 요청
 
         map = new HashMap<>();
+        map.put("animalImage", Image);
         map.put("animalSpecies", Species);
-        map.put("animalGender", Sex);
+        map.put("animalGender", Gender);
+        map.put("animalWeight", Weight);
         map.put("animalNeutralization", Neutering);
         map.put("animalAge", Age);
         map.put("animalVaccinated", Vaccination);

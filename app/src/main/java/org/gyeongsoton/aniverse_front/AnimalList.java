@@ -39,9 +39,6 @@ public class AnimalList extends AppCompatActivity {
     private final int Fragment_2 = 2;
     private final int Fragment_3 = 3;
 
-    private ImageView ani_1;
-    private TextView textView1;
-
     //프래그먼트 객체 생성(객체 변수를 전역변수로 만들며 프래그먼트 오류 해결) //Animal Activity가 생성되면서 그 위에 올라갈 프래그먼트들도 함께 생성
     Fragment fragment1;
     Fragment fragment2;
@@ -52,24 +49,32 @@ public class AnimalList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_animallist);
+        Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler()); //핸들러
 
         fragment1=new AdoptList();
         fragment2=new ProtectList();
         fragment3=new CompleteList();
 
-        Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler());
-
+        //upload 버튼
         Button add_btn = (Button)findViewById(R.id.add_btn);
-
         //AdoptList, ProtectList upload가 서로 다름
-    /*    add_btn.setOnClickListener(new View.OnClickListener() {
+        add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Adopt_protect_upload.class);
+                //현재 보여지는 프래그먼트 반환
+                for (Fragment fragment: getSupportFragmentManager().getFragments()) {
+                    if (fragment instanceof AdoptList) {
+                        Intent intent = new Intent(getApplicationContext(), AdoptAnimalUpload.class);
+                        startActivity(intent);
 
-                startActivity(intent);
+                    }else if(fragment instanceof ProtectList){
+                        Intent intent = new Intent(getApplicationContext(), ProtectAnimalUpload.class);
+                        startActivity(intent);
+                    }
+                }
             }
-        });*/
+        });
+
 
         ImageButton adopt_btn = (ImageButton)findViewById(R.id.adopt_btn);
         adopt_btn.setOnClickListener(new View.OnClickListener() {
@@ -128,6 +133,8 @@ public class AnimalList extends AppCompatActivity {
             @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                add_btn.setEnabled(true);
+                add_btn.setVisibility(View.VISIBLE);
                 FragmentView(Fragment_1);
                 adopt_tab.setPressed(true);
                 protect_tab.setPressed(false);
@@ -141,6 +148,8 @@ public class AnimalList extends AppCompatActivity {
             @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                add_btn.setEnabled(true);
+                add_btn.setVisibility(View.VISIBLE);
                 FragmentView(Fragment_2);
                 protect_tab.setPressed(true);
                 adopt_tab.setPressed(false);
@@ -154,6 +163,8 @@ public class AnimalList extends AppCompatActivity {
             @SuppressLint("ClickableViewAccessibility")
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                add_btn.setEnabled(false); //완료 버튼 클릭 시, 업로드 버튼 X
+                add_btn.setVisibility(View.GONE);
                 FragmentView(Fragment_3);
                 complete_tab.setPressed(true);
                 adopt_tab.setPressed(false);
@@ -163,10 +174,11 @@ public class AnimalList extends AppCompatActivity {
             }
         });
 
-        //기본상태(뺄지 말지 고민중)
-        //adopt_tab.setPressed(true);
-        //protect_tab.setPressed(false);
-        //complete_tab.setPressed(false);
+        //기본상태
+        FragmentView(Fragment_1);
+        adopt_tab.setPressed(true);
+        protect_tab.setPressed(false);
+        complete_tab.setPressed(false);
 
     }
 

@@ -95,22 +95,7 @@
                     android:scaleType="fitCenter"
                     app:srcCompat="@android:drawable/ic_menu_upload" />
 
-                <Space
-                    android:layout_width="310dp"
-                    android:layout_height="19dp" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Theme.AppCompat.DayNight.NoActionBar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/sex"
-                        android:layout_width="310dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="0dp"
-                        android:hint="성별" />
-                </com.google.android.material.textfield.TextInputLayout>
 
                 <Space
                     android:layout_width="match_parent"
@@ -139,6 +124,23 @@
                     android:layout_height="match_parent">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/gender"
+                        android:layout_width="310dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:hint="성별" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="19dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Theme.AppCompat.DayNight.NoActionBar"
+                    android:layout_width="310dp"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/age"
                         android:layout_width="310dp"
                         android:layout_height="wrap_content"
@@ -149,6 +151,23 @@
                 <Space
                     android:layout_width="310dp"
                     android:layout_height="12dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Theme.AppCompat.DayNight.NoActionBar"
+                    android:layout_width="310dp"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/weight"
+                        android:layout_width="310dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:hint="무게" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Space
+                    android:layout_width="310dp"
+                    android:layout_height="19dp" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Theme.AppCompat.DayNight.NoActionBar"

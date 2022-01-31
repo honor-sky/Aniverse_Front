@@ -79,10 +79,11 @@ public class ProtectList extends Fragment {
                     boolean success = jsonResponse.getBoolean("isSuccess"); //reponse 제대로 왔는지 확인
 
                     if (success) {
+                        System.out.println("성공");
 
                         //데이터 배열 전체 파싱
                         JSONArray respArr = (JSONArray) jsonResponse.get("getProtectListResult");
-
+                        System.out.println(respArr.length());
                         //반복문으로 하나하나 파싱
                         for(int i=0;i<respArr.length();i++){
                             JSONObject obj = (JSONObject)respArr.get(i); //데이터 원소 하나하나 가져옴

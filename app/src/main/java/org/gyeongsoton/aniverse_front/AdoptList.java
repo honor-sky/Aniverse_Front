@@ -1,8 +1,15 @@
 package org.gyeongsoton.aniverse_front;
 
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +23,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.loader.content.CursorLoader;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -26,6 +34,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,12 +46,23 @@ public class AdoptList extends Fragment {
     //굳이 재사용될 필요 없는 변수들은 그냥 메모리 공간 고정 시켜넣고 값만 변경시키도록 static으로 만드는게 좋다고 함
     private static ImageView ani_img1;
     private static TextView ani_info1;
-    private static String  animalImage, animalSpecies, animalAge;
+    private static String animalImage, animalSpecies, animalAge;
     private static int adoptListIdx;
     private Map<Object,Integer> items = new HashMap<>();
     //AnimalList animalList;
     TableLayout tablelayout;
     TableRow tableRow;
+
+    private String getRealPathFromURI(Uri contentUri) {
+        String[] proj = { MediaStore.Images.Media.DATA };
+
+        CursorLoader cursorLoader = new CursorLoader(getActivity(), contentUri, proj, null, null, null);
+        Cursor cursor = cursorLoader.loadInBackground();
+
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        return cursor.getString(column_index);
+    }
 
 
     //프래그먼트를 액티비티 위에 올린다.
@@ -71,8 +92,9 @@ public class AdoptList extends Fragment {
         setHasOptionsMenu(true);
         ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_adoptlist, container, false); //프래그먼트 레이아웃을 클래스에 올려줌
         //System.out.println("입양: onCreateView 실행");
-
         Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler()); //예외처리 핸들러
+
+
 
         tablelayout = (TableLayout)view.findViewById(R.id.tablelayout1); //TableLayout
 
@@ -88,12 +110,13 @@ public class AdoptList extends Fragment {
 
                         //데이터 배열 전체 파싱
                         JSONArray respArr = (JSONArray) jsonResponse.get("adoptListRows");
-
+                        System.out.println(respArr.length());
                         //반복문으로 하나하나 파싱
                         for(int i=0;i<respArr.length();i++){
                             JSONObject obj = (JSONObject)respArr.get(i); //데이터 원소 하나하나 가져옴
+
                             adoptListIdx = obj.getInt("adoptListIdx");
-                            animalImage = obj.getString("animalImage");
+                            animalImage =  obj.getString("animalImage");
                             animalSpecies = obj.getString("animalSpecies");
                             animalAge = obj.getString("animalAge");
                             /* 이미지 로드 백그라운드 실행*/
@@ -118,8 +141,21 @@ public class AdoptList extends Fragment {
                             items.put(ani_img1.getTag(),adoptListIdx); //hashmap에 이미지뷰의 Tag와 동물 인덱스 저장
 
                             ani_info1.setText(animalSpecies + " " + animalAge + "세");
+                            System.out.println(animalImage);
                             Glide.with(AdoptList.this).load(animalImage).into(ani_img1); //백그라운드 처리 시 주석처리
-                            ani_img1.setClipToOutline(true); //백그라운드 처리 시 주석처리
+                            ani_img1.setClipToOutline(true);
+
+
+
+
+                             //백그라운드 처리 시 주석처리
+                            /*try{
+                                InputStream in = getActivity().getContentResolver().openInputStream(animalImage);
+                                Bitmap bitmap = BitmapFactory.decodeStream(in);
+                                ani_img1.setImageBitmap(bitmap);
+                            } catch (FileNotFoundException e){
+                                e.printStackTrace();
+                            }*/
 
 
                             ani_img1.setOnClickListener(new View.OnClickListener(){
