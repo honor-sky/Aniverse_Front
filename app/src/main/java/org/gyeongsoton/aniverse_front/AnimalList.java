@@ -58,21 +58,21 @@ public class AnimalList extends AppCompatActivity {
         Button add_btn = (Button)findViewById(R.id.add_btn);
 
         //AdoptList, ProtectList upload가 서로 다름
-    /*    add_btn.setOnClickListener(new View.OnClickListener() {
+       add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Adopt_protect_upload.class);
+                Intent intent = new Intent(getApplicationContext(), AdoptAnimalUpload.class);
 
                 startActivity(intent);
             }
-        });*/
+        });
 
         ImageButton adopt_btn = (ImageButton)findViewById(R.id.adopt_btn);
         adopt_btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AnimalList.class);
+                Intent intent = new Intent(getApplicationContext(), AnimalListRecycler.class);
                 startActivity(intent);
             }
         });

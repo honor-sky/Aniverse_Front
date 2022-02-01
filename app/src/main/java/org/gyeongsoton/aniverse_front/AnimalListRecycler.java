@@ -116,6 +116,7 @@ public class AnimalListRecycler extends AppCompatActivity {
                         recyclerView.setAdapter(aniAdapter);
                         //레이아웃 지정
                         recyclerView.setLayoutManager(new GridLayoutManager(AnimalListRecycler.this, 2));
+                        aniAdapter.notifyDataSetChanged();
 
                         for(int i=0;i<respArr.length();i++){
                             AnimalListRecyclerItem item= new AnimalListRecyclerItem();
