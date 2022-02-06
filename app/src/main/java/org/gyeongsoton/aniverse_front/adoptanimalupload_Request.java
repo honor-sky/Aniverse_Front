@@ -9,9 +9,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class adoptanimalupload_Request extends StringRequest {
-    final static private String URL = "http://3.36.175.200/adopt/animalinfo";
+    final static private String URL = "http://3.36.175.200/adopt/imagetest";
     private Map<String, String> map;
     //private Map<String, String>parameters;
+
+
 
     public adoptanimalupload_Request(String Image,String Species,String Gender,String Weight,String Neutering,String Age,String Vaccination,String Disease,
                                      String Deadline,String FindSpot,String AnimalInfo,String Condition,Response.Listener<String> listener) {

@@ -8,17 +8,26 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.content.CursorLoader;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import android.view.View;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -26,18 +35,43 @@ import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.google.android.material.textfield.TextInputEditText;
 
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.UUID;
+
 
 public class AdoptAnimalUpload extends AppCompatActivity {
 
     private EditText species, gender, weight, age, neutering, vaccination, disease, deadline,
             findSpot, animalInfo, condition;
     private Uri uri;
+    Bitmap bitmap;
+    String encodeImageString;
     private AlertDialog dialog;
     private final int GET_GALLERY_IMAGE = 200;
     private ImageButton ani_img, back_btn;
     private Button upload_button;
+
+
+    //selected image is converted to Base64 String
+    private void encodeBitmapImage(Bitmap bitmap)
+    {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+
+        byte[] bytesOfImage = byteArrayOutputStream.toByteArray();
+        encodeImageString = android.util.Base64.encodeToString(bytesOfImage, Base64.DEFAULT);
+
+    }
 
 
     ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -47,7 +81,16 @@ public class AdoptAnimalUpload extends AppCompatActivity {
                     if (result.getResultCode() == RESULT_OK) {
                         Intent intent = result.getData();
                         uri = intent.getData();
-                        Glide.with(getApplicationContext()).load(uri).into(ani_img);
+                        Glide.with(getApplicationContext()).load(uri).into(ani_img); //setting selected image
+
+                        try {
+                            InputStream inputStream = getContentResolver().openInputStream(uri);
+                            bitmap = BitmapFactory.decodeStream(inputStream);
+                            encodeBitmapImage(bitmap);
+
+                        }   catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             });
@@ -76,7 +119,8 @@ public class AdoptAnimalUpload extends AppCompatActivity {
         upload_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String Image = uri.toString();
+
+                //final String Image = uri.toString();
                 final String Species = species.getText().toString();
                 final String Gender = gender.getText().toString();
                 final String Weight = weight.getText().toString();
@@ -91,7 +135,7 @@ public class AdoptAnimalUpload extends AppCompatActivity {
 
 
                 //한 칸이라도 입력 안했을 경우
-                if (Image.equals("")||Species.equals("") || Gender.equals("") || Weight.equals("") || Neutering.equals("") || Age.equals("") || Vaccination.equals("") ||
+                if (Species.equals("") || Gender.equals("") || Weight.equals("") || Neutering.equals("") || Age.equals("") || Vaccination.equals("") ||
                         Disease.equals("") || Deadline.equals("") || FindSpot.equals("") || AnimalInfo.equals("") ||
                         Condition.equals("")) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(AdoptAnimalUpload.this);
@@ -99,6 +143,8 @@ public class AdoptAnimalUpload extends AppCompatActivity {
                     dialog.show();
                     return;
                 }
+
+
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
@@ -126,7 +172,7 @@ public class AdoptAnimalUpload extends AppCompatActivity {
                     }
                 };
                 //서버로 Volley를 이용해서 요청
-                adoptanimalupload_Request request = new adoptanimalupload_Request(Image, Species, Gender, Weight, Neutering, Age,
+                adoptanimalupload_Request request = new adoptanimalupload_Request(encodeImageString, Species, Gender, Weight, Neutering, Age,
                         Vaccination, Disease, Deadline, FindSpot, AnimalInfo, Condition, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(AdoptAnimalUpload.this);
                 queue.add(request);
@@ -137,8 +183,11 @@ public class AdoptAnimalUpload extends AppCompatActivity {
         ani_img.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_PICK);
             intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
+            intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            //intent.setType("imgae/*");
             intent.setAction(Intent.ACTION_GET_CONTENT);
             launcher.launch(intent);
+
         });
 
         //뒤로가기
@@ -154,3 +203,4 @@ public class AdoptAnimalUpload extends AppCompatActivity {
 
     }
 }
+

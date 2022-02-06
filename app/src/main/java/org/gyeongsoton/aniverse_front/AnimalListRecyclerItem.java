@@ -9,6 +9,7 @@ import java.net.URI;
 public class AnimalListRecyclerItem {
     private String animalImage;
     private String animalInfo;
+    private int animalImage2;
 
     public void setImage(String img){
         animalImage=img;
@@ -23,4 +24,7 @@ public class AnimalListRecyclerItem {
     public String getInfo(){
         return animalInfo;
     }
+
+    // 서버 연결 안할 경우 이미지
+    public void setImage2(int img){ animalImage2=img; }
 }

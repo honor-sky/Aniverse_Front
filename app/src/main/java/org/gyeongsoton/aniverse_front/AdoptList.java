@@ -23,6 +23,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import android.database.Cursor;
 import androidx.loader.content.CursorLoader;
 
 import com.android.volley.RequestQueue;
@@ -34,6 +35,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -52,17 +54,6 @@ public class AdoptList extends Fragment {
     //AnimalList animalList;
     TableLayout tablelayout;
     TableRow tableRow;
-
-    private String getRealPathFromURI(Uri contentUri) {
-        String[] proj = { MediaStore.Images.Media.DATA };
-
-        CursorLoader cursorLoader = new CursorLoader(getActivity(), contentUri, proj, null, null, null);
-        Cursor cursor = cursorLoader.loadInBackground();
-
-        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        return cursor.getString(column_index);
-    }
 
 
     //프래그먼트를 액티비티 위에 올린다.
@@ -95,7 +86,6 @@ public class AdoptList extends Fragment {
         Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler()); //예외처리 핸들러
 
 
-
         tablelayout = (TableLayout)view.findViewById(R.id.tablelayout1); //TableLayout
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -114,13 +104,11 @@ public class AdoptList extends Fragment {
                         //반복문으로 하나하나 파싱
                         for(int i=0;i<respArr.length();i++){
                             JSONObject obj = (JSONObject)respArr.get(i); //데이터 원소 하나하나 가져옴
-
                             adoptListIdx = obj.getInt("adoptListIdx");
                             animalImage =  obj.getString("animalImage");
                             animalSpecies = obj.getString("animalSpecies");
                             animalAge = obj.getString("animalAge");
-
-                            // 이미지 로드 백그라운드 실행
+                            /* 이미지 로드 백그라운드 실행*/
                             //ImageLoadTask task = new ImageLoadTask(animalImage, ani_img1,AdoptList.this);
                             //task.execute();
 
@@ -132,8 +120,6 @@ public class AdoptList extends Fragment {
 
                             }
 
-
-
                             ListLayout listLayout = new ListLayout(getContext()); //item 객체 새로 만듬(레이아웃 형태로 만듬) //static 변수로 만들면?...
 
                             //동물정보 셋팅
@@ -144,22 +130,9 @@ public class AdoptList extends Fragment {
                             items.put(ani_img1.getTag(),adoptListIdx); //hashmap에 이미지뷰의 Tag와 동물 인덱스 저장
 
                             ani_info1.setText(animalSpecies + " " + animalAge + "세");
-                            System.out.println(animalImage);
-                            Glide.with(AdoptList.this).load(animalImage).into(ani_img1); //백그라운드 처리 시 주석처리
+                            Glide.with(getContext()).load(animalImage).into(ani_img1);
                             ani_img1.setClipToOutline(true);
 
-
-
-
-                            //백그라운드 처리 시 주석처리
-                            /*
-                            try{
-                                InputStream in = getActivity().getContentResolver().openInputStream(animalImage);
-                                Bitmap bitmap = BitmapFactory.decodeStream(in);
-                                ani_img1.setImageBitmap(bitmap);
-                            } catch (FileNotFoundException e){
-                                e.printStackTrace();
-                            }*/
 
 
                             ani_img1.setOnClickListener(new View.OnClickListener(){

@@ -14,8 +14,8 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
+//import com.android.volley.VolleyError;
+//import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 
@@ -25,18 +25,17 @@ import org.json.JSONObject;
 
 public class AdoptDetail extends AppCompatActivity {
 
-
-
-    private ImageView ani_img;
-    private TextView species_gender_neu, age, weight, vaccination, disease, findSpot, animalInfo, deadline, adoptCondition;
+    private static ImageView ani_img;
+    private static TextView species_gender_neu, age, weight, vaccination, disease, findSpot, animalInfo, deadline, adoptCondition;
+    private static int adoptListIdx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //Adopt_list에서 클릭한 동물의 인덱스 전달
-        //Intent intent = getIntent(); /*데이터 수신*/
-        //animalIdx = intent.getExtras().getString("animalIdx");
+        Intent intent = getIntent(); /*데이터 수신*/
+        adoptListIdx = intent.getExtras().getInt("adoptListIdx");
 
 
         ani_img = findViewById(R.id.ani_img);
@@ -60,23 +59,26 @@ public class AdoptDetail extends AppCompatActivity {
             public void onResponse(String response) {
                 try {
 
-                    JSONObject jsonResponse = new JSONObject(response); //서버 응답 받아 json 파일 받아옴
-                    boolean success = jsonResponse.getBoolean("isSuccess");
-                    if (success) {
-                        System.out.println("성공");
+                    JSONObject jsonResponse = new JSONObject(response);
+                    boolean success = jsonResponse.getBoolean("isSuccess"); //reponse 제대로 왔는지 확인
 
-                        img_url = jsonResponse.getString("animalImage");
-                        animalSpecies = jsonResponse.getString("animalSpecies");
-                        animalAge = jsonResponse.getString("animalAge");
-                        animalGender = jsonResponse.getString("animalGender");
-                        animalNeutralization = jsonResponse.getString("animalNeutralization");
-                        animalWeight = jsonResponse.getString("animalWeight");
-                        animalVaccinated = jsonResponse.getString("animalVaccinated");
-                        animalDiseases = jsonResponse.getString("animalDiseases");
-                        animalFind = jsonResponse.getString("animalFind");
-                        animalIntro = jsonResponse.getString("animalIntro");
-                        adoptEnd = jsonResponse.getString("adoptEnd");
-                        adoptcondition = jsonResponse.getString("adoptCondition");
+                    if (success) {
+                        //데이터 배열 전체 파싱
+                        JSONArray respArr = (JSONArray) jsonResponse.get("AdoptListResult");
+                        JSONObject obj = (JSONObject)respArr.get(1);
+
+                        img_url = obj.getString("animalImage");
+                        animalSpecies = obj.getString("animalSpecies");
+                        animalAge = obj.getString("animalAge");
+                        animalGender = obj.getString("animalGender");
+                        animalNeutralization = obj.getString("animalNeutralization");
+                        animalWeight = obj.getString("animalWeight");
+                        animalVaccinated = obj.getString("animalVaccinated");
+                        animalDiseases = obj.getString("animalDiseases");
+                        animalFind = obj.getString("animalFind");
+                        animalIntro = obj.getString("animalIntro");
+                        adoptEnd = obj.getString("adoptEnd");
+                        adoptcondition = obj.getString("adoptCondition");
 
                         //동물정보 셋팅
                         Glide.with(AdoptDetail.this).load(img_url).into(ani_img); //사진
@@ -96,7 +98,7 @@ public class AdoptDetail extends AppCompatActivity {
                 }
             }
         };
-        adoptdetail_Request request = new adoptdetail_Request( responseListener); //입양 진행중
+        adoptdetail_Request request = new adoptdetail_Request( adoptListIdx,responseListener); //입양 진행중
         RequestQueue queue = Volley.newRequestQueue(AdoptDetail.this);
         queue.add(request);
 

@@ -32,6 +32,9 @@
             android:name=".AnimalList"
             android:exported="true"/>
         <activity
+            android:name=".AnimalListRecycler"
+            android:exported="true"/>
+        <activity
             android:name=".AnimalListRecyclerFragment"
             android:exported="true"/>
         <activity

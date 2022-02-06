@@ -38,8 +38,6 @@ public class AnimalListRecycler extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animallistrecycler);
 
-        mContext = this;
-
         //recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
@@ -107,7 +105,7 @@ public class AnimalListRecycler extends AppCompatActivity {
                         JSONArray respArr = (JSONArray) jsonResponse.get("adoptListRows");
                         System.out.println(respArr.length());
 
-
+                        mContext= getApplicationContext();
                         mList = new ArrayList<>();
                         //어댑터 객체
                         aniAdapter = new AnimalListRecycleAdapter(mContext,mList);
@@ -116,17 +114,14 @@ public class AnimalListRecycler extends AppCompatActivity {
                         recyclerView.setAdapter(aniAdapter);
                         //레이아웃 지정
                         recyclerView.setLayoutManager(new GridLayoutManager(AnimalListRecycler.this, 2));
-                        aniAdapter.notifyDataSetChanged();
+                        //aniAdapter.notifyDataSetChanged();
 
                         for(int i=0;i<respArr.length();i++){
                             AnimalListRecyclerItem item= new AnimalListRecyclerItem();
                             JSONObject obj = null;
                             try {
                                 obj = (JSONObject)respArr.get(i);
-                                //item.setImage(obj.getInt("animalImage"));
-                                //item.setImage(R.drawable.img_square);
-                                //item.setInfo(i+" 동물");
-                                System.out.println(obj.getString("animalSpecies"));
+                                item.setImage(obj.getString("animalImage"));
                                 item.setInfo(obj.getString("animalSpecies")+" "+obj.getString("animalAge"));
                                 aniAdapter.setArrayData(item);
                                 /*백그라운드 실행*/
@@ -149,9 +144,29 @@ public class AnimalListRecycler extends AppCompatActivity {
             queue.add(request);
         }
         else if(num==2){
+            /*
             protectlist_Request request= new protectlist_Request(responseListener); //임시보호 진행중
             RequestQueue queue = Volley.newRequestQueue(AnimalListRecycler.this);
-            queue.add(request);
+            queue.add(request);*/
+            mContext= getApplicationContext();
+            mList = new ArrayList<>();
+            //어댑터 객체
+            aniAdapter = new AnimalListRecycleAdapter(mContext,mList);
+            //리사이클러뷰 객체
+            recyclerView = (RecyclerView) findViewById(R.id.aniRecyclerView);
+            recyclerView.setAdapter(aniAdapter);
+            //레이아웃 지정
+            recyclerView.setLayoutManager(new GridLayoutManager(AnimalListRecycler.this, 2));
+
+            for (int i =0; i<20; i++){
+                AnimalListRecyclerItem item= new AnimalListRecyclerItem();
+                //makeRequest(position, view);
+                item.setImage2(R.drawable.ic_launcher_foreground);
+                item.setInfo("임시보호 "+i+"번째 동물");
+
+                aniAdapter.setArrayData(item);
+
+            }
         }
         else{
             animallist_Request request = new animallist_Request("Y",responseListener);
