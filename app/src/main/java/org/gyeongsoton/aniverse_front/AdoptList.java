@@ -88,6 +88,7 @@ public class AdoptList extends Fragment {
         //System.out.println("입양: onCreateView 실행");
         Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler()); //예외처리 핸들러
 
+
         tablelayout = (TableLayout)view.findViewById(R.id.tablelayout1); //TableLayout
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
