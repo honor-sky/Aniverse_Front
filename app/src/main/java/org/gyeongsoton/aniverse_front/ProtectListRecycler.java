@@ -73,31 +73,7 @@ public class ProtectListRecycler extends Fragment {
 
         Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler()); //예외처리 핸들러
 
-        //현재 상태 저장, 새 리스트
-        mContext = getContext();
-        mList = new ArrayList<>();
-        //어댑터 객체 (현재 상태와 리스트 전달)
-        aniAdapter = new AnimalListRecycleAdapter(mContext,mList);
-        //리사이클러뷰 객체
-        recyclerView = (RecyclerView) view.findViewById(R.id.aniRecyclerView);
-        recyclerView.setAdapter(aniAdapter);
-        //레이아웃 지정
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
-        for (int i =0; i<40; i++){
-            AnimalListRecyclerItem item= new AnimalListRecyclerItem();
-
-            //각 list의 값들을 객체에 set해줌
-            //item.setImage(R.drawable.img_square);
-            item.setInfo("임시보호 "+i+"번째 동물");
-
-            //각 값이 들어간 data를 adapter에 추가
-            aniAdapter.setArrayData(item);
-        }
-
-        System.out.println("=====임시보호 수 "+aniAdapter.getItemCount() );
-
-        /*
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -109,13 +85,13 @@ public class ProtectListRecycler extends Fragment {
                     if (success) {
                         System.out.println("성공");
 
-                        JSONArray respArr = (JSONArray) jsonResponse.get("adoptListRows");
+                        JSONArray respArr = (JSONArray) jsonResponse.get("getProtectListResult");
                         System.out.println(respArr.length());
 
-
+                        mContext = getContext();
                         mList = new ArrayList<>();
                         //어댑터 객체
-                        aniAdapter = new AnimalListRecycleAdapter(mList);
+                        aniAdapter = new AnimalListRecycleAdapter(mContext,mList);
                         //리사이클러뷰 객체
                         recyclerView = (RecyclerView) view.findViewById(R.id.aniRecyclerView);
                         recyclerView.setAdapter(aniAdapter);
@@ -127,10 +103,7 @@ public class ProtectListRecycler extends Fragment {
                             JSONObject obj = null;
                             try {
                                 obj = (JSONObject)respArr.get(i);
-                                //item.setImage(obj.getInt("animalImage"));
-                                item.setImage(R.drawable.img_square);
-                                //item.setInfo(i+" 동물");
-                                System.out.println(obj.getString("animalSpecies"));
+                                item.setImage(obj.getString("animalImage"));
                                 item.setInfo(obj.getString("animalSpecies")+" "+obj.getString("animalAge"));
                                 aniAdapter.setArrayData(item);
 
@@ -149,7 +122,7 @@ public class ProtectListRecycler extends Fragment {
         protectlist_Request request= new protectlist_Request(responseListener); //임시보호 진행중
         RequestQueue queue = Volley.newRequestQueue(container.getContext());
         queue.add(request);
-        */
+
 
 
         return view;

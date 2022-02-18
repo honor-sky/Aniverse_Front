@@ -1,5 +1,7 @@
 package org.gyeongsoton.aniverse_front;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
+import android.util.TimingLogger;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -172,7 +175,6 @@ public class AdoptList extends Fragment {
         //System.out.println("입양: onViewCreated 실행 : before super");
         super.onViewCreated(view, savedInstanceState);
         //System.out.println("입양: onViewCreated 실행 : after super");
-
 
     }
 }

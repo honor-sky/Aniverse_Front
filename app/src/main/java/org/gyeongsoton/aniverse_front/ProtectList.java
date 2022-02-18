@@ -21,6 +21,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.annotation.GlideModule;
+import com.bumptech.glide.module.AppGlideModule;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,24 +43,6 @@ public class ProtectList extends Fragment {
     TableLayout tablelayout;
     TableRow tableRow;
 
-/*    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        animalList = (AnimalList) getActivity();
-        System.out.println("임시보호: onAttach 실행");
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        System.out.println("임시보호: onDestroyView 실행");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        System.out.println("임시보호: onDestroy 실행");
-    }*/
 
     @Nullable
     @Override
@@ -112,8 +96,9 @@ public class ProtectList extends Fragment {
                             //items.put(ani_img1.getTag(),adoptListIdx); //hashmap에 이미지뷰의 Tag와 동물 인덱스 저장
 
                             ani_info1.setText(animalSpecies + " " + animalAge + "세");
-                            Glide.with(ProtectList.this).load(animalImage).into(ani_img1); //백그라운드 처리 시 주석처리
+                            Glide.with(ProtectList.this).load(animalImage).override(130,130).into(ani_img1); //백그라운드 처리 시 주석처리
                             ani_img1.setClipToOutline(true); //백그라운드 처리 시 주석처리
+                            System.out.println(animalImage);
 
 
                             ani_img1.setOnClickListener(new View.OnClickListener(){
