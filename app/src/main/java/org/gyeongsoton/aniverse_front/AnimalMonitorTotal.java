@@ -21,6 +21,7 @@ import com.bumptech.glide.Glide;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+// 동물 모니터링 화면
 public class AnimalMonitorTotal extends AppCompatActivity {
 
     private final int Fragment_1 = 1;

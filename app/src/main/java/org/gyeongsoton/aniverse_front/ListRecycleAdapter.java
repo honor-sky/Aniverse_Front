@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,10 +16,12 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
+// 리사이클러뷰 어댑터
 public class ListRecycleAdapter extends RecyclerView.Adapter<ListRecycleAdapter.ViewHolder> {
     //어댑터에 들어갈 list
     private ArrayList<ListRecyclerItem> mData= null;
     private Context mContext;
+    private Button adopt;
 
     // 아이템 뷰를 저장하는 뷰홀더 클래스
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -52,7 +55,6 @@ public class ListRecycleAdapter extends RecyclerView.Adapter<ListRecycleAdapter.
         View view = inflater.inflate(R.layout.recyclerview_animallistitem,parent,false);
         ListRecycleAdapter.ViewHolder vh = new ListRecycleAdapter.ViewHolder(view);
 
-        System.out.println("viewholder!");
         //ViewHolder로 리턴
         return vh;
     }
@@ -67,16 +69,19 @@ public class ListRecycleAdapter extends RecyclerView.Adapter<ListRecycleAdapter.
         holder.ani_img.setClipToOutline(true);
         holder.ani_info.setText(item.getInfo());
 
+        System.out.println("버튼!!!!!!!"+adopt);
+
         // 이미지를 클릭하면 세부화면으로 이동
         holder.ani_img.setOnClickListener(new View.OnClickListener() {
+            Intent intent;
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AdoptDetail.class);
+                if (adopt.isPressed()){
+                    intent = new Intent(v.getContext(), AdoptDetail.class);}
                 v.getContext().startActivity(intent);
             }
         });
 
-        System.out.println("Bind:"+ position);
     }
 
     //RecyclerView의 총 개수

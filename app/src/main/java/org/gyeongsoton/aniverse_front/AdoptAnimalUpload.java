@@ -48,7 +48,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.UUID;
 
-
+//입양동물 업로드
 public class AdoptAnimalUpload extends AppCompatActivity {
 
     private EditText species, gender, weight, age, neutering, vaccination, disease, deadline,

@@ -18,6 +18,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileWriter;
 
+// 사용자 로그인
 public class LoginNormal extends AppCompatActivity {
 
     private EditText login_ID, login_pass;

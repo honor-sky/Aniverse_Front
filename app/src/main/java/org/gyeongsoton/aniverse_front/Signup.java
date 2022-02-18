@@ -20,6 +20,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
+// 회원가입
 public class Signup extends AppCompatActivity {
 
     private EditText username, ID, pass,pass_confirm;

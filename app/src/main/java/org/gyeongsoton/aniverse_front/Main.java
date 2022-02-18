@@ -22,6 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+// 메인화면
 public class Main extends AppCompatActivity {
 
     @Override

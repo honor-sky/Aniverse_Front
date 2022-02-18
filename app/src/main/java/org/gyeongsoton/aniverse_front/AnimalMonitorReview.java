@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 
+// 동물 모니터링
+// 후기, 소식 작성
 public class AnimalMonitorReview extends Fragment {
 
     ImageView imageView1;

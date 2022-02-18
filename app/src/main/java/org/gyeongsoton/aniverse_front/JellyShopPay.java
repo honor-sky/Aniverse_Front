@@ -19,6 +19,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+// 젤리샵 구매 화면
 public class JellyShopPay extends AppCompatActivity {
 
     private AlertDialog dialog;

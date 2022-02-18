@@ -17,6 +17,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+// 입양 신청하는 화면
 public class GuardApply extends AppCompatActivity {
 
 

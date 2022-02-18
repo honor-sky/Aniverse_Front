@@ -23,6 +23,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+//입양동물 세부화면
 public class AdoptDetail extends AppCompatActivity {
 
     private static ImageView ani_img;

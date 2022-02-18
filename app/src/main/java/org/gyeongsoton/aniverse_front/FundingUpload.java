@@ -53,6 +53,7 @@ import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 
+// 펀딩 정보 입력, 업로드
 public class FundingUpload extends AppCompatActivity {
     private final int GET_GALLERY_IMAGE = 200;
     private EditText fundingTitle, fundingPurpose, fundingAmount, fundingPeriod;

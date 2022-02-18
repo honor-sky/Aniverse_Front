@@ -5,6 +5,7 @@ import android.net.Uri;
 
 import java.net.URI;
 
+// 리사이클러뷰 아이템
 // 추후 아이템에 어떤 값이 들어갈지
 public class ListRecyclerItem {
     private String animalImage;

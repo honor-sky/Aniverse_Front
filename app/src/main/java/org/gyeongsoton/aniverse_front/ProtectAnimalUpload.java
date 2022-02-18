@@ -23,6 +23,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+// 임시보호 동물 데이터 업로드
 public class ProtectAnimalUpload extends AppCompatActivity {
 
     private EditText species, sex, age, vaccination, disease, findSpot, animalInfo,deadline,period,protectCondition;

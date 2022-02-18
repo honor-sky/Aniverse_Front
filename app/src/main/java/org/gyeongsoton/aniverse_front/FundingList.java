@@ -20,13 +20,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-
+// 펀딩 항목들이 리스트로 나타남
+// 리사이클러뷰 사용
 public class FundingList extends AppCompatActivity {
 
-    private ImageView ani_img1;
-    private TextView ani_info1;
-    String animalImage, animalSpecies, animalAge;
-    AnimalListRecyclerFragment animalListrecyclerfragment;
     RecyclerView recyclerView;
     ListRecycleAdapter fundAdapter;
     ArrayList<ListRecyclerItem> mList;
@@ -52,7 +49,7 @@ public class FundingList extends AppCompatActivity {
                     if (success) {
                         System.out.println("성공");
 
-                        JSONArray respArr = (JSONArray) jsonResponse.get("");
+                        JSONArray respArr = (JSONArray) jsonResponse.get("fundingListRows");
                         System.out.println(respArr.length());
 
                         mContext = getApplicationContext();

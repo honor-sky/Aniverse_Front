@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+// 입양 신청 확인
 public class GuardApplyConfirm extends AppCompatActivity {
 
     ImageButton back_btn;

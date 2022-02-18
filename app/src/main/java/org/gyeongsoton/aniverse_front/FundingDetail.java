@@ -22,6 +22,7 @@ import com.bumptech.glide.Glide;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+// 펀딩 세부 정보 화면
 public class FundingDetail extends AppCompatActivity {
 
     String Title,Purpose,Period,Image;

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+// 젤리샵
 public class JellyShop extends AppCompatActivity {
 
     @Override

@@ -23,6 +23,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+// 임시보호동물 세부정보 화면
 public class ProtectDetail extends AppCompatActivity {
 
     String Species,Age,Gender,Neutralization, Weight,Vaccinated, Diseases, FindSpot, Info,Deadline,Peroid,protectFile,Condition;

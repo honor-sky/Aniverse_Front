@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 
+// 동물 모니터링
+// 건강검진 결과 작성
 public class AnimalMonitorDiagno extends Fragment {
 
     ImageView imageView1;

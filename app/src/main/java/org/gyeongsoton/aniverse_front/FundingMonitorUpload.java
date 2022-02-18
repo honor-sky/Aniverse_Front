@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+// 펀딩 모니터링 결과 업로드
 public class FundingMonitorUpload extends AppCompatActivity {
 
     private final int GET_GALLERY_IMAGE=200;

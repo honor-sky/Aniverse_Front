@@ -31,7 +31,7 @@ import com.bumptech.glide.Glide;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
+// 동물 리스트 액티비티
 public class AnimalList extends AppCompatActivity {
 
     private ImageView ani_1;
@@ -58,21 +58,21 @@ public class AnimalList extends AppCompatActivity {
         Button add_btn = (Button)findViewById(R.id.add_btn);
 
         //AdoptList, ProtectList upload가 서로 다름
-       add_btn.setOnClickListener(new View.OnClickListener() {
+    /*    add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AdoptAnimalUpload.class);
+                Intent intent = new Intent(getApplicationContext(), Adopt_protect_upload.class);
 
                 startActivity(intent);
             }
-        });
+        });*/
 
         ImageButton adopt_btn = (ImageButton)findViewById(R.id.adopt_btn);
         adopt_btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AnimalListRecycler.class);
+                Intent intent = new Intent(getApplicationContext(), AnimalList.class);
                 startActivity(intent);
             }
         });
@@ -101,7 +101,7 @@ public class AnimalList extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),AnimalListRecyclerFragment.class);
+                Intent intent = new Intent(getApplicationContext(),AnimalList.class);
                 startActivity(intent);
             }
         });

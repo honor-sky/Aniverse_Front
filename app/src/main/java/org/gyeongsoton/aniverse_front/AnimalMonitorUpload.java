@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+// 동물 모니터링 업로드
 public class AnimalMonitorUpload extends AppCompatActivity {
 
     private final int GET_GALLERY_IMAGE=200;

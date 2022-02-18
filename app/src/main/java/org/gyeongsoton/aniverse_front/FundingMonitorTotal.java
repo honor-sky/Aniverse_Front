@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+// 펀딩 모니터링 화면
 public class FundingMonitorTotal extends AppCompatActivity {
 
     ImageView fund_img,review_img1;
