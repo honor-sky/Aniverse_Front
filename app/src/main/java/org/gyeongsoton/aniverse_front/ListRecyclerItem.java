@@ -6,7 +6,7 @@ import android.net.Uri;
 import java.net.URI;
 
 // 추후 아이템에 어떤 값이 들어갈지
-public class AnimalListRecyclerItem {
+public class ListRecyclerItem {
     private String animalImage;
     private String animalInfo;
     private int animalImage2;

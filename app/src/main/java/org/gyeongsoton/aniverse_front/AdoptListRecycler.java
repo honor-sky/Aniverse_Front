@@ -1,17 +1,11 @@
 package org.gyeongsoton.aniverse_front;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,16 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 
 
@@ -43,8 +32,8 @@ public class AdoptListRecycler extends Fragment {
     String animalImage, animalSpecies, animalAge;
     AnimalListRecyclerFragment animalListrecyclerfragment;
     RecyclerView recyclerView;
-    AnimalListRecycleAdapter aniAdapter;
-    ArrayList<AnimalListRecyclerItem> mList;
+    ListRecycleAdapter aniAdapter;
+    ArrayList<ListRecyclerItem> mList;
     private Context mContext;
 
 
@@ -82,7 +71,7 @@ public class AdoptListRecycler extends Fragment {
         mContext = getContext();
         mList = new ArrayList<>();
         //어댑터 객체 (현재 상태와 리스트 전달)
-        aniAdapter = new AnimalListRecycleAdapter(mContext,mList);
+        aniAdapter = new ListRecycleAdapter(mContext,mList);
         //리사이클러뷰 객체
         recyclerView = (RecyclerView) view.findViewById(R.id.aniRecyclerView);
         recyclerView.setAdapter(aniAdapter);
@@ -107,7 +96,7 @@ public class AdoptListRecycler extends Fragment {
 
                         mList = new ArrayList<>();
                         //어댑터 객체
-                        aniAdapter = new AnimalListRecycleAdapter(mContext,mList);
+                        aniAdapter = new ListRecycleAdapter(mContext,mList);
                         //리사이클러뷰 객체
                         recyclerView = (RecyclerView) view.findViewById(R.id.aniRecyclerView);
                         recyclerView.setAdapter(aniAdapter);
@@ -115,7 +104,7 @@ public class AdoptListRecycler extends Fragment {
                         recyclerView.setLayoutManager(new GridLayoutManager(container.getContext(), 2));
 
                         for(int i=0;i<respArr.length();i++){
-                            AnimalListRecyclerItem item= new AnimalListRecyclerItem();
+                            ListRecyclerItem item= new ListRecyclerItem();
                             JSONObject obj = null;
                             try {
                                 obj = (JSONObject)respArr.get(i);

@@ -1,16 +1,11 @@
 package org.gyeongsoton.aniverse_front;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,8 +32,8 @@ public class ProtectListRecycler extends Fragment {
     String animalImage, animalSpecies, animalAge;
     AnimalListRecyclerFragment animalListrecyclerfragment;
     RecyclerView recyclerView;
-    AnimalListRecycleAdapter aniAdapter;
-    ArrayList<AnimalListRecyclerItem> mList;
+    ListRecycleAdapter aniAdapter;
+    ArrayList<ListRecyclerItem> mList;
     private Context mContext;
 
 
@@ -91,7 +85,7 @@ public class ProtectListRecycler extends Fragment {
                         mContext = getContext();
                         mList = new ArrayList<>();
                         //어댑터 객체
-                        aniAdapter = new AnimalListRecycleAdapter(mContext,mList);
+                        aniAdapter = new ListRecycleAdapter(mContext,mList);
                         //리사이클러뷰 객체
                         recyclerView = (RecyclerView) view.findViewById(R.id.aniRecyclerView);
                         recyclerView.setAdapter(aniAdapter);
@@ -99,7 +93,7 @@ public class ProtectListRecycler extends Fragment {
                         recyclerView.setLayoutManager(new GridLayoutManager(container.getContext(), 2));
 
                         for(int i=0;i<respArr.length();i++){
-                            AnimalListRecyclerItem item= new AnimalListRecyclerItem();
+                            ListRecyclerItem item= new ListRecyclerItem();
                             JSONObject obj = null;
                             try {
                                 obj = (JSONObject)respArr.get(i);

@@ -5,32 +5,26 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TableRow;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class AnimalListRecycler extends AppCompatActivity {
     RecyclerView recyclerView;
-    AnimalListRecycleAdapter aniAdapter;
-    ArrayList<AnimalListRecyclerItem> mList;
+    ListRecycleAdapter aniAdapter;
+    ArrayList<ListRecyclerItem> mList;
     private Context mContext;
 
     @Override
@@ -108,7 +102,7 @@ public class AnimalListRecycler extends AppCompatActivity {
                         mContext= getApplicationContext();
                         mList = new ArrayList<>();
                         //어댑터 객체
-                        aniAdapter = new AnimalListRecycleAdapter(mContext,mList);
+                        aniAdapter = new ListRecycleAdapter(mContext,mList);
                         //리사이클러뷰 객체
                         recyclerView = (RecyclerView) findViewById(R.id.aniRecyclerView);
                         recyclerView.setAdapter(aniAdapter);
@@ -117,7 +111,7 @@ public class AnimalListRecycler extends AppCompatActivity {
                         //aniAdapter.notifyDataSetChanged();
 
                         for(int i=0;i<respArr.length();i++){
-                            AnimalListRecyclerItem item= new AnimalListRecyclerItem();
+                            ListRecyclerItem item= new ListRecyclerItem();
                             JSONObject obj = null;
                             try {
                                 obj = (JSONObject)respArr.get(i);
@@ -144,29 +138,10 @@ public class AnimalListRecycler extends AppCompatActivity {
             queue.add(request);
         }
         else if(num==2){
-            /*
             protectlist_Request request= new protectlist_Request(responseListener); //임시보호 진행중
             RequestQueue queue = Volley.newRequestQueue(AnimalListRecycler.this);
-            queue.add(request);*/
-            mContext= getApplicationContext();
-            mList = new ArrayList<>();
-            //어댑터 객체
-            aniAdapter = new AnimalListRecycleAdapter(mContext,mList);
-            //리사이클러뷰 객체
-            recyclerView = (RecyclerView) findViewById(R.id.aniRecyclerView);
-            recyclerView.setAdapter(aniAdapter);
-            //레이아웃 지정
-            recyclerView.setLayoutManager(new GridLayoutManager(AnimalListRecycler.this, 2));
+            queue.add(request);
 
-            for (int i =0; i<20; i++){
-                AnimalListRecyclerItem item= new AnimalListRecyclerItem();
-                //makeRequest(position, view);
-                item.setImage2(R.drawable.ic_launcher_foreground);
-                item.setInfo("임시보호 "+i+"번째 동물");
-
-                aniAdapter.setArrayData(item);
-
-            }
         }
         else{
             animallist_Request request = new animallist_Request("Y",responseListener);

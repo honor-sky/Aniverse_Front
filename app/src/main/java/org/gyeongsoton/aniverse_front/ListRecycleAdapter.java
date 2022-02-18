@@ -15,16 +15,16 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class AnimalListRecycleAdapter extends RecyclerView.Adapter<AnimalListRecycleAdapter.ViewHolder> {
+public class ListRecycleAdapter extends RecyclerView.Adapter<ListRecycleAdapter.ViewHolder> {
     //어댑터에 들어갈 list
-    private ArrayList<AnimalListRecyclerItem> mData= null;
+    private ArrayList<ListRecyclerItem> mData= null;
     private Context mContext;
 
     // 아이템 뷰를 저장하는 뷰홀더 클래스
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView ani_img;
         TextView ani_info;
-        AnimalListRecyclerItem item;
+        ListRecyclerItem item;
 
         ViewHolder(View itemView){
             super(itemView);
@@ -36,7 +36,7 @@ public class AnimalListRecycleAdapter extends RecyclerView.Adapter<AnimalListRec
     }
 
     // 생성자에서 데이터 리스트 객체를 전달받음
-    public AnimalListRecycleAdapter(Context mContext,ArrayList<AnimalListRecyclerItem> data){
+    public ListRecycleAdapter(Context mContext,ArrayList<ListRecyclerItem> data){
         mData = data;
         this.mContext = mContext;
     }
@@ -50,7 +50,7 @@ public class AnimalListRecycleAdapter extends RecyclerView.Adapter<AnimalListRec
 
         //layoutinflater를 이용하여 항목 xml을 inflate 시킴
         View view = inflater.inflate(R.layout.recyclerview_animallistitem,parent,false);
-        AnimalListRecycleAdapter.ViewHolder vh = new AnimalListRecycleAdapter.ViewHolder(view);
+        ListRecycleAdapter.ViewHolder vh = new ListRecycleAdapter.ViewHolder(view);
 
         System.out.println("viewholder!");
         //ViewHolder로 리턴
@@ -61,7 +61,7 @@ public class AnimalListRecycleAdapter extends RecyclerView.Adapter<AnimalListRec
     //item 하나하나를 표시
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        AnimalListRecyclerItem item = mData.get(position);
+        ListRecyclerItem item = mData.get(position);
 
         Glide.with(mContext).load(item.getImage()).into(holder.ani_img);
         holder.ani_img.setClipToOutline(true);
@@ -85,7 +85,7 @@ public class AnimalListRecycleAdapter extends RecyclerView.Adapter<AnimalListRec
         return mData.size();
     }
 
-    public void setArrayData(AnimalListRecyclerItem item){
+    public void setArrayData(ListRecyclerItem item){
         mData.add(item);
     }
 }

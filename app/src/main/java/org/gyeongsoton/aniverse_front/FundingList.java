@@ -1,43 +1,44 @@
 package org.gyeongsoton.aniverse_front;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-import com.bumptech.glide.Glide;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
+
 public class FundingList extends AppCompatActivity {
 
-    private ImageView fund_img1;
-    private TextView fund_info1;
-    String fundingImage,fundingName;
-    Button add_btn;
+    private ImageView ani_img1;
+    private TextView ani_info1;
+    String animalImage, animalSpecies, animalAge;
+    AnimalListRecyclerFragment animalListrecyclerfragment;
+    RecyclerView recyclerView;
+    ListRecycleAdapter fundAdapter;
+    ArrayList<ListRecyclerItem> mList;
+    private Context mContext;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fundinglist);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_fundinglist);
 
-
-        fund_img1 = findViewById(R.id.fund_img1);
-        fund_info1 = findViewById(R.id.fund_info1);
-        add_btn = findViewById(R.id.add_btn);
-
+        Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler()); //예외처리 핸들러
 
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -45,92 +46,47 @@ public class FundingList extends AppCompatActivity {
             public void onResponse(String response) {
                 try {
 
-                    JSONObject jsonResponse = new JSONObject(response); //서버 응답 받아 json 파일 받아옴
-                    boolean success = jsonResponse.getBoolean("isSuccess");
+                    JSONObject jsonResponse = new JSONObject(response);
+                    boolean success = jsonResponse.getBoolean("isSuccess"); //response 제대로 왔는지 확인
+
                     if (success) {
+                        System.out.println("성공");
 
-                        System.out.println("펀딩 성공");
+                        JSONArray respArr = (JSONArray) jsonResponse.get("");
+                        System.out.println(respArr.length());
 
-                        fundingImage = jsonResponse.getString("fundingImage");
-                        fundingName = jsonResponse.getString("fundingName");
+                        mContext = getApplicationContext();
+                        mList = new ArrayList<>();
+                        //어댑터 객체
+                        fundAdapter = new ListRecycleAdapter(mContext,mList);
+                        //리사이클러뷰 객체
+                        recyclerView = (RecyclerView) findViewById(R.id.fundRecyclerview);
+                        recyclerView.setAdapter(fundAdapter);
+                        //레이아웃 지정
+                        recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));
 
-                        //첫번째 펀딩 정보 셋팅
-                        fund_info1.setText(fundingName);
-                        Glide.with(FundingList.this).load(fundingImage).into(fund_img1);
-                        fund_img1.setClipToOutline(true);
+                        for(int i=0;i<respArr.length();i++){
+                            ListRecyclerItem item= new ListRecyclerItem();
+                            JSONObject obj = null;
+                            try {
+                                obj = (JSONObject)respArr.get(i);
+                                item.setImage(obj.getString("fundingImage"));
+                                item.setInfo(obj.getString("fundingName"));
+                                fundAdapter.setArrayData(item);
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         };
-        fundinglist_Request request = new fundinglist_Request(responseListener);
+        fundinglist_Request request= new fundinglist_Request(responseListener); //임시보호 진행중
         RequestQueue queue = Volley.newRequestQueue(FundingList.this);
         queue.add(request);
-
-        //이미지 누르면 세부화면으로 전환
-        fund_img1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),FundingDetail.class);
-                startActivity(intent);
-            }
-        });
-
-        Button funding_add_btn=(Button) findViewById(R.id.funding_add_btn);
-        funding_add_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FundingList.this, FundingUpload.class);
-                startActivity(intent);
-            }
-        });
-
-        //하단바
-        ImageButton home_btn = (ImageButton) findViewById(R.id.home_btn);
-        home_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FundingList.this, Main.class);
-                //intent.putExtra( "userIdx", userIdx);
-                //intent.putExtra( "userAuth", userAuth);
-                startActivity(intent);
-            }
-        });
-
-        ImageButton adopt_btn = (ImageButton) findViewById(R.id.adopt_btn);
-        adopt_btn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AnimalList.class);
-                //intent.putExtra( "userIdx", userIdx);
-                //intent.putExtra( "userAuth", userAuth);
-                startActivity(intent);
-            }
-        });
-
-        ImageButton funding_btn = (ImageButton) findViewById(R.id.funding_btn);
-        funding_btn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), FundingList.class);
-                // intent.putExtra( "userIdx", userIdx);
-                // intent.putExtra( "userAuth", userAuth);
-                startActivity(intent);
-            }
-        });
-       /* ImageButton market_btn = (ImageButton) findViewById(R.id.market_btn);
-        market_btn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Market_list.class);
-                //intent.putExtra( "userIdx", userIdx);
-                //intent.putExtra( "userAuth", userAuth);
-                startActivity(intent);
-            }
-        });*/
     }
 }
