@@ -21,7 +21,7 @@ public class ListRecycleAdapter extends RecyclerView.Adapter<ListRecycleAdapter.
     //어댑터에 들어갈 list
     private ArrayList<ListRecyclerItem> mData= null;
     private Context mContext;
-    private Button adopt;
+    private int mNum;
 
     // 아이템 뷰를 저장하는 뷰홀더 클래스
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -39,7 +39,8 @@ public class ListRecycleAdapter extends RecyclerView.Adapter<ListRecycleAdapter.
     }
 
     // 생성자에서 데이터 리스트 객체를 전달받음
-    public ListRecycleAdapter(Context mContext,ArrayList<ListRecyclerItem> data){
+    public ListRecycleAdapter(int num, Context mContext,ArrayList<ListRecyclerItem> data){
+        mNum = num;
         mData = data;
         this.mContext = mContext;
     }
@@ -69,15 +70,23 @@ public class ListRecycleAdapter extends RecyclerView.Adapter<ListRecycleAdapter.
         holder.ani_img.setClipToOutline(true);
         holder.ani_info.setText(item.getInfo());
 
-        System.out.println("버튼!!!!!!!"+adopt);
-
         // 이미지를 클릭하면 세부화면으로 이동
         holder.ani_img.setOnClickListener(new View.OnClickListener() {
             Intent intent;
             @Override
             public void onClick(View v) {
-                if (adopt.isPressed()){
-                    intent = new Intent(v.getContext(), AdoptDetail.class);}
+                if (mNum == 1){
+                    intent = new Intent(v.getContext(), AdoptDetail.class);
+                }
+                else if (mNum == 2){
+                    intent = new Intent(v.getContext(), ProtectDetail.class);
+                }
+                else if (mNum == 3){
+                    intent = new Intent(v.getContext(), AnimalMonitorTotal.class);
+                }
+                else if (mNum == 4){
+                    intent = new Intent(v.getContext(), FundingDetail.class);
+                }
                 v.getContext().startActivity(intent);
             }
         });

@@ -55,7 +55,7 @@ public class FundingList extends AppCompatActivity {
                         mContext = getApplicationContext();
                         mList = new ArrayList<>();
                         //어댑터 객체
-                        fundAdapter = new ListRecycleAdapter(mContext,mList);
+                        fundAdapter = new ListRecycleAdapter(4,mContext,mList);
                         //리사이클러뷰 객체
                         recyclerView = (RecyclerView) findViewById(R.id.fundRecyclerview);
                         recyclerView.setAdapter(fundAdapter);

@@ -1,51 +1,38 @@
 package org.gyeongsoton.aniverse_front;
 
-import static android.content.ContentValues.TAG;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
-import static java.lang.Thread.sleep;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.bumptech.glide.Glide;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+// 동물 리스트
+// 뷰페이저2 사용, 프래그먼트, 리사이클러뷰 사용
+public class AnimalList extends FragmentActivity implements OnPageChangeCallback {
 
-// 동물 리스트 액티비티
-public class AnimalList extends AppCompatActivity {
+    private static final int NUM_PAGES = 3;
 
-    private ImageView ani_1;
-    private TextView textView1;
+    private ViewPager2 viewPager2;
+    private FragmentStateAdapter pagerAdapter;
 
-    //프래그먼트 식별 변수
-    private final int Fragment_1 = 1;
-    private final int Fragment_2 = 2;
-    private final int Fragment_3 = 3;
-
-    //프래그먼트 객체 생성(객체 변수를 전역변수로 만들며 프래그먼트 오류 해결) //Animal Activity가 생성되면서 그 위에 올라갈 프래그먼트들도 함께 생성
-    Fragment fragment1=new AdoptList();
-    Fragment fragment2=new ProtectList();
-    Fragment fragment3=new CompleteList();
+    AdoptList adopt_fragment = new AdoptList();
+    ProtectList protect_fragment = new ProtectList();
+    CompleteList complete_fragment = new CompleteList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,19 +40,7 @@ public class AnimalList extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_animallist);
 
-        Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler());
-
         Button add_btn = (Button)findViewById(R.id.add_btn);
-
-        //AdoptList, ProtectList upload가 서로 다름
-    /*    add_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Adopt_protect_upload.class);
-
-                startActivity(intent);
-            }
-        });*/
 
         ImageButton adopt_btn = (ImageButton)findViewById(R.id.adopt_btn);
         adopt_btn.setOnClickListener(new View.OnClickListener() {
@@ -115,80 +90,89 @@ public class AnimalList extends AppCompatActivity {
             }
         });
 
-        /*입양, 입양완료 버튼 전환*/
-        Button adopt_tab = (Button)findViewById(R.id.adopt_tab);
-        Button protect_tab = (Button)findViewById(R.id.protect_tab);
-        Button complete_tab = (Button)findViewById(R.id.complete_tab);
+        // 탭 레이아웃
+        TabLayout tabLayout = findViewById(R.id.tab);
+        //기본색상, 선택시 색상 설정
+        //tabLayout.setTabTextColors(Color.rgb(0,0,0),Color.rgb(150,0,0));
 
-        adopt_tab.setOnTouchListener(new View.OnTouchListener() {
-            @SuppressLint("ClickableViewAccessibility")
+        ArrayList<Fragment> f_items = new ArrayList<>();
+
+        f_items.add(adopt_fragment);
+        f_items.add(protect_fragment);
+        f_items.add(complete_fragment);
+
+        // 뷰 페이저
+        viewPager2 = findViewById(R.id.animal_list_viewpager);
+        pagerAdapter = new ScreenSlidePagerAdapter(this, f_items);
+        viewPager2.setAdapter(pagerAdapter);
+
+        //탭 레이아웃에 넣을 문자 리스트
+        final List<String> tabElement = Arrays.asList("입양","임시보호","완료");
+
+        // 뷰페이저와 탭을 연결
+        // 첫번째 인자 : 탭 레이아웃, 두번째 인자 : 뷰페이저, 세번째 인자: 탭레이아웃의 각 탭의 구성값을 설정할 수 있는 메서드
+        new TabLayoutMediator(tabLayout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                //fragment1 = new AdoptList();
-                //sleep(3);
-                FragmentView(Fragment_1);
-                adopt_tab.setPressed(true);
-                protect_tab.setPressed(false);
-                complete_tab.setPressed(false);
-                //ResponseListener와 Volley 가 있는 클래스 호출 (어떤 프래그먼트 호출할건지 알려줄만한 정보, Volley요청 시 필요한 인자 함께 전달)
-                return true;
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                TextView textView = new TextView(AnimalList.this);
+                textView.setText(tabElement.get(position));
+                textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                textView.setTextSize(20);
+                tab.setCustomView(textView);
+            }
+        }).attach();
+
+        //AdoptList, ProtectList upload가 서로 다름
+        add_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (viewPager2.getCurrentItem()==0){
+                    Intent intent = new Intent(getApplicationContext(), AdoptAnimalUpload.class);
+                    startActivity(intent);
+                }
+                else if (viewPager2.getCurrentItem()==1){
+                    Intent intent = new Intent(getApplicationContext(), ProtectAnimalUpload.class);
+                    startActivity(intent);
+                }
             }
         });
-
-        protect_tab.setOnTouchListener(new View.OnTouchListener() {
-            @SuppressLint("ClickableViewAccessibility")
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                //fragment2 = new ProtectList();
-                FragmentView(Fragment_2);
-                protect_tab.setPressed(true);
-                adopt_tab.setPressed(false);
-                complete_tab.setPressed(false);
-                return true;
-
-            }
-        });
-
-        complete_tab.setOnTouchListener(new View.OnTouchListener() {
-            @SuppressLint("ClickableViewAccessibility")
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                //fragment3 = new CompleteList();
-                FragmentView(Fragment_3);
-                complete_tab.setPressed(true);
-                adopt_tab.setPressed(false);
-                protect_tab.setPressed(false);
-                return true;
-
-            }
-        });
-
-        //기본상태(뺄지 말지 고민중)
-        //adopt_tab.setPressed(true);
-        //protect_tab.setPressed(false);
-        //complete_tab.setPressed(false);
 
     }
 
-
-    /*프래그먼트 버튼 클릭 시 동작*/
-    private void FragmentView(int fragment) {
-        switch (fragment) { //입양
-            case 1:
-                //Fragment fragment1 = new AdoptList();
-                getSupportFragmentManager().beginTransaction().replace(R.id.aniaml_list_container,fragment1).commit(); //프래그먼트 변경 //변경사항 반영 되나?....
-                break;
-
-            case 2: //임시보호
-                //Fragment fragment2 = new ProtectList();
-                getSupportFragmentManager().beginTransaction().replace(R.id.aniaml_list_container,fragment2).commit();
-                break;
-
-            case 3: //완료
-                //Fragment fragment3 = new CompleteList();
-                getSupportFragmentManager().beginTransaction().replace(R.id.aniaml_list_container,fragment3).commit();
-                break;
+    @Override
+    public void onBackPressed() {
+        if (viewPager2.getCurrentItem() == 0) {
+            super.onBackPressed();
         }
+        else {
+            viewPager2.setCurrentItem(viewPager2.getCurrentItem() - 1);
+        }
+    }
+
+
+    private void refresh(){
+        pagerAdapter.notifyDataSetChanged();
+    }
+
+
+    private class ScreenSlidePagerAdapter extends FragmentStateAdapter {
+        ArrayList<Fragment> items ;
+        public ScreenSlidePagerAdapter(FragmentActivity fa, ArrayList list) {
+            super(fa);
+            this.items=list;
+        }
+
+        @NonNull
+        @Override
+        public Fragment createFragment(int position) {
+            return items.get(position);
+        }
+
+        @Override
+        public int getItemCount() {
+            return items.size();
+        }
+
     }
 
 }
