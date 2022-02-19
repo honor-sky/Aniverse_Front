@@ -25,7 +25,4 @@ public class ListRecyclerItem {
     public String getInfo(){
         return animalInfo;
     }
-
-    // 서버 연결 안할 경우 이미지
-    public void setImage2(int img){ animalImage2=img; }
 }

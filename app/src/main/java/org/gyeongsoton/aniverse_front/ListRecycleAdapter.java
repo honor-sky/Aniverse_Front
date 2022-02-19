@@ -75,6 +75,7 @@ public class ListRecycleAdapter extends RecyclerView.Adapter<ListRecycleAdapter.
             public void onClick(View v) {
                 if (mNum == 1){
                     intent = new Intent(v.getContext(), AdoptDetail.class);
+                    intent.putExtra("adoptListIdx",mData.indexOf(item));
                 }
                 else if (mNum == 2){
                     intent = new Intent(v.getContext(), ProtectDetail.class);
@@ -87,6 +88,7 @@ public class ListRecycleAdapter extends RecyclerView.Adapter<ListRecycleAdapter.
                 }
                 else if (mNum == 5){
                     intent = new Intent(v.getContext(), MarketDetail.class);
+                    intent.putExtra("productIdx",mData.indexOf(item));
                 }
                 v.getContext().startActivity(intent);
             }

@@ -66,7 +66,7 @@ public class AdoptDetail extends AppCompatActivity {
                     if (success) {
                         //데이터 배열 전체 파싱
                         JSONArray respArr = (JSONArray) jsonResponse.get("AdoptListResult");
-                        JSONObject obj = (JSONObject)respArr.get(1);
+                        JSONObject obj = (JSONObject)respArr.get(adoptListIdx);
 
                         img_url = obj.getString("animalImage");
                         animalSpecies = obj.getString("animalSpecies");
