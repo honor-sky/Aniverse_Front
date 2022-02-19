@@ -2,13 +2,14 @@ package org.gyeongsoton.aniverse_front;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -20,32 +21,19 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-// [입양] 버튼 눌렀을 때 동물 리스트
-// 프래그먼트, 리사이클러뷰 사용
-public class CompleteList extends Fragment {
+public class MarketAll extends Fragment {
 
     RecyclerView recyclerView;
     ListRecycleAdapter aniAdapter;
     ArrayList<ListRecyclerItem> mList;
     private Context mContext;
 
-    /*
-    public static SlideCompleteFragment newInstance(int number){
-        SlideCompleteFragment completeFragment = new SlideCompleteFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt("number", number);
-        completeFragment.setArguments(bundle);
-        return completeFragment;
-    }
-
-     */
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_animallist, container, false); //프래그먼트 레이아웃을 클래스에 올려줌
-        System.out.println("완료: onCreateView 실행");
+        ViewGroup view =  (ViewGroup) inflater.inflate(R.layout.fragment_marketitemlist, container, false);
+
+        Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler());
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
@@ -58,15 +46,15 @@ public class CompleteList extends Fragment {
                     if (success) {
                         System.out.println("성공");
 
-                        JSONArray respArr = (JSONArray) jsonResponse.get("adoptListRows");
+                        JSONArray respArr = (JSONArray) jsonResponse.get("result");
                         System.out.println(respArr.length());
 
                         mContext=getContext();
                         mList = new ArrayList<>();
                         //어댑터 객체
-                        aniAdapter = new ListRecycleAdapter(3,mContext,mList);
+                        aniAdapter = new ListRecycleAdapter(5,mContext,mList);
                         //리사이클러뷰 객체
-                        recyclerView = (RecyclerView) view.findViewById(R.id.aniRecyclerView);
+                        recyclerView = (RecyclerView) view.findViewById(R.id.itemRecyclerView);
                         recyclerView.setAdapter(aniAdapter);
                         //레이아웃 지정
                         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
@@ -76,8 +64,8 @@ public class CompleteList extends Fragment {
                             JSONObject obj = null;
                             try {
                                 obj = (JSONObject)respArr.get(i);
-                                item.setImage(obj.getString("animalImage"));
-                                item.setInfo(obj.getString("animalSpecies")+" "+obj.getString("animalAge")+"세");
+                                item.setImage(obj.getString("productImage"));
+                                item.setInfo(obj.getString("productName"));
                                 aniAdapter.setArrayData(item);
 
                             } catch (JSONException e) {
@@ -90,9 +78,10 @@ public class CompleteList extends Fragment {
                 }
             }
         };
-        animallist_Request request = new animallist_Request("Y", responseListener);
+        marketlist_Request request = new marketlist_Request(responseListener);
         RequestQueue queue = Volley.newRequestQueue(getContext());
         queue.add(request);
+
         return view;
     }
 }

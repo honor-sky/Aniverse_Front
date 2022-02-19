@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,24 +24,23 @@ public class ListRecycleAdapter extends RecyclerView.Adapter<ListRecycleAdapter.
 
     // 아이템 뷰를 저장하는 뷰홀더 클래스
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView ani_img;
-        TextView ani_info;
-        ListRecyclerItem item;
+        ImageView img;
+        TextView info;
 
         ViewHolder(View itemView){
             super(itemView);
 
             // 뷰 객체에 대한 참조
-            ani_img=itemView.findViewById(R.id.ani_img);
-            ani_info=itemView.findViewById(R.id.ani_info);
+            img=itemView.findViewById(R.id.img);
+            info=itemView.findViewById(R.id.info);
         }
     }
 
     // 생성자에서 데이터 리스트 객체를 전달받음
     public ListRecycleAdapter(int num, Context mContext,ArrayList<ListRecyclerItem> data){
         mNum = num;
-        mData = data;
         this.mContext = mContext;
+        mData = data;
     }
 
     // 아이템 뷰를 위한 뷰홀더 객체를 생성하여 리턴
@@ -53,7 +51,7 @@ public class ListRecycleAdapter extends RecyclerView.Adapter<ListRecycleAdapter.
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         //layoutinflater를 이용하여 항목 xml을 inflate 시킴
-        View view = inflater.inflate(R.layout.recyclerview_animallistitem,parent,false);
+        View view = inflater.inflate(R.layout.recyclerview_list,parent,false);
         ListRecycleAdapter.ViewHolder vh = new ListRecycleAdapter.ViewHolder(view);
 
         //ViewHolder로 리턴
@@ -66,12 +64,12 @@ public class ListRecycleAdapter extends RecyclerView.Adapter<ListRecycleAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ListRecyclerItem item = mData.get(position);
 
-        Glide.with(mContext).load(item.getImage()).into(holder.ani_img);
-        holder.ani_img.setClipToOutline(true);
-        holder.ani_info.setText(item.getInfo());
+        Glide.with(mContext).load(item.getImage()).into(holder.img);
+        holder.img.setClipToOutline(true);
+        holder.info.setText(item.getInfo());
 
         // 이미지를 클릭하면 세부화면으로 이동
-        holder.ani_img.setOnClickListener(new View.OnClickListener() {
+        holder.img.setOnClickListener(new View.OnClickListener() {
             Intent intent;
             @Override
             public void onClick(View v) {
@@ -86,6 +84,9 @@ public class ListRecycleAdapter extends RecyclerView.Adapter<ListRecycleAdapter.
                 }
                 else if (mNum == 4){
                     intent = new Intent(v.getContext(), FundingDetail.class);
+                }
+                else if (mNum == 5){
+                    intent = new Intent(v.getContext(), MarketDetail.class);
                 }
                 v.getContext().startActivity(intent);
             }

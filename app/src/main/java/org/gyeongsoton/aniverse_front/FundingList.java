@@ -3,8 +3,6 @@ package org.gyeongsoton.aniverse_front;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -57,7 +55,7 @@ public class FundingList extends AppCompatActivity {
                         //어댑터 객체
                         fundAdapter = new ListRecycleAdapter(4,mContext,mList);
                         //리사이클러뷰 객체
-                        recyclerView = (RecyclerView) findViewById(R.id.fundRecyclerview);
+                        recyclerView = (RecyclerView) findViewById(R.id.fundRecyclerView);
                         recyclerView.setAdapter(fundAdapter);
                         //레이아웃 지정
                         recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 2));

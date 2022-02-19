@@ -41,7 +41,7 @@ public class ProtectList extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_adoptlist, container, false); //프래그먼트 레이아웃을 클래스에 올려줌
+        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_animallist, container, false); //프래그먼트 레이아웃을 클래스에 올려줌
         System.out.println("임시보호: onCreateView 실행");
 
         Response.Listener<String> responseListener = new Response.Listener<String>() {

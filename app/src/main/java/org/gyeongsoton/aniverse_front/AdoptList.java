@@ -3,16 +3,13 @@ package org.gyeongsoton.aniverse_front;
 import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -45,7 +42,7 @@ public class AdoptList extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_adoptlist, container, false); //프래그먼트 레이아웃을 클래스에 올려줌
+        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_animallist, container, false); //프래그먼트 레이아웃을 클래스에 올려줌
         System.out.println("입양: onCreateView 실행");
 
 
@@ -94,7 +91,7 @@ public class AdoptList extends Fragment {
                 }
             }
         };
-        animallist_Request request = new animallist_Request("S",responseListener);
+        animallist_Request request = new animallist_Request("s",responseListener);
         RequestQueue queue = Volley.newRequestQueue(getContext());
         queue.add(request);
 
