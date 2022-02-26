@@ -32,6 +32,13 @@ public class Main extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        ImageView event_img;
+        event_img = findViewById(R.id.event);
+        event_img.setClipToOutline(true);
+
+
+
+
         TableLayout layout [] = { (TableLayout)findViewById(R.id.tablelayout1),(TableLayout)findViewById(R.id.tablelayout2),(TableLayout)findViewById(R.id.tablelayout3)};
         TableRow row [] = new TableRow[3];
 

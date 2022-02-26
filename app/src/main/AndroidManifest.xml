@@ -20,6 +20,9 @@
         android:theme="@style/Theme.Aniverse_Front"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ProductBuyConfirm"
+            android:exported="true" />
+        <activity
             android:name=".ProductBuy"
             android:exported="true" />
         <activity

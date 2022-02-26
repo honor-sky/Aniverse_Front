@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/top_round_wsquare"
     android:orientation="vertical"
     android:padding="25dp">
 
@@ -35,15 +36,15 @@
 
             <Button
                 android:id="@+id/sub"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="-"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/itemCount"
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAlignment="center"
@@ -51,8 +52,8 @@
 
             <Button
                 android:id="@+id/add"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="+"
                 android:textSize="20sp" />
@@ -86,6 +87,10 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
 
     <Button
         android:id="@+id/buy_button"

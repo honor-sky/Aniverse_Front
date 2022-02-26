@@ -8,29 +8,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class ProductBuy extends AppCompatActivity {
+public class ProductBuyConfirm extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_productbuy);
-
-        Button buy_btn = (Button)findViewById(R.id.buy_btn);
-        buy_btn.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ProductBuyConfirm.class);
-                startActivity(intent);
-            }
-        });
+        setContentView(R.layout.activity_productbuyconfirm);
 
         ImageButton back_btn = (ImageButton)findViewById(R.id.back_btn);
         back_btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MarketDetail.class);
+                Intent intent = new Intent(getApplicationContext(), MarketList.class);
                 startActivity(intent);
             }
         });

@@ -138,17 +138,6 @@ public class AnimalList extends FragmentActivity implements OnPageChangeCallback
 
     }
 
-    @Override
-    public void onBackPressed() {
-        if (viewPager2.getCurrentItem() == 0) {
-            super.onBackPressed();
-        }
-        else {
-            viewPager2.setCurrentItem(viewPager2.getCurrentItem() - 1);
-        }
-    }
-
-
     private class ScreenSlidePagerAdapter extends FragmentStateAdapter {
         ArrayList<Fragment> items ;
         public ScreenSlidePagerAdapter(FragmentActivity fa, ArrayList list) {

@@ -10,7 +10,6 @@ import java.net.URI;
 public class ListRecyclerItem {
     private String animalImage;
     private String animalInfo;
-    private int animalImage2;
 
     public void setImage(String img){
         animalImage=img;
