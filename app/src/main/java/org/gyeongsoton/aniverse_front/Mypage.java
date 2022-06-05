@@ -125,7 +125,7 @@ public class Mypage extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AnimalList.class);
+                Intent intent = new Intent(getApplicationContext(), AnimalListRecyclerFragment.class);
                 // intent.putExtra( "userIdx", userIdx);
                 // intent.putExtra( "userAuth", userAuth);
                 startActivity(intent);

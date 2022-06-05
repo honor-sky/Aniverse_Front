@@ -1,12 +1,7 @@
 package org.gyeongsoton.aniverse_front;
 
-import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
@@ -23,8 +18,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import android.database.Cursor;
-import androidx.loader.content.CursorLoader;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -35,9 +28,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,27 +45,6 @@ public class AdoptList extends Fragment {
     TableLayout tablelayout;
     TableRow tableRow;
 
-
-    //프래그먼트를 액티비티 위에 올린다.
-   /* @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        animalList = (AnimalList) getActivity();
-        System.out.println("입양: onAttach 실행");
-
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        System.out.println("입양: onDestroyView 실행");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        System.out.println("입양: onDestroy 실행");
-    }*/
 
     @Nullable
     @Override

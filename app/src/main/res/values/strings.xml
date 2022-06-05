@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">Aniverse_Front</string>
+    <string name="AnimalInfo">동물 정보</string>
+    <string name="Adopt">입양</string>
+    <string name="Protect">임시보호</string>
+    <string name="Necessary">*필수</string>
+    <string name="Image">사진</string>
+    <string name="BACK">뒤로가기 버튼</string>
+    <string name="UploadAdopt">입양 정보 입력</string>
+    <string name="UploadImage">사진 업로드</string>
+    <string name="Species">종</string>
+    <string name="Sex">성별</string>
+    <string name="Age">나이(추정)</string>
+    <string name="Weight">무게</string>
+    <string name="Neutering">중성화여부</string>
+    <string name="Vaccination">접종여부</string>
+    <string name="Disease">병력 여부</string>
+    <string name="Deadline">신청 마감일</string>
+    <string name="FindSpot">발견장소</string>
+    <string name="ExtraInfo">소개</string>
+    <string name="Requirement">입양조건</string>
+    <string name="Notice1">*모든 입력란은 필수적으로 채워주셔야 합니다.</string>
+    <string name="Upload">업로드 하기</string>
+    <string name="Apply">신청하기</string>
+    <string name="CenterName">센터명</string>
+    <string name="Center_Address">센터 주소</string>
+    <string name="Center_Phone">센터 전화번호</string>
+    <string name="Complete">완료</string>
 </resources>

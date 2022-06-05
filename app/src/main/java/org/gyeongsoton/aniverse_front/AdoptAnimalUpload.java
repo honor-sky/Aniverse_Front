@@ -6,16 +6,12 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.loader.content.CursorLoader;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.view.View;
@@ -23,30 +19,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-import android.view.View;
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
-
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.google.android.material.textfield.TextInputEditText;
-
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.UUID;
+
 
 
 public class AdoptAnimalUpload extends AppCompatActivity {
@@ -57,7 +41,6 @@ public class AdoptAnimalUpload extends AppCompatActivity {
     Bitmap bitmap;
     String encodeImageString;
     private AlertDialog dialog;
-    private final int GET_GALLERY_IMAGE = 200;
     private ImageButton ani_img, back_btn;
     private Button upload_button;
 
@@ -130,14 +113,14 @@ public class AdoptAnimalUpload extends AppCompatActivity {
                 final String Disease = disease.getText().toString();
                 final String Deadline = deadline.getText().toString();
                 final String FindSpot = findSpot.getText().toString();
-                final String AnimalInfo = animalInfo.getText().toString();
-                final String Condition = condition.getText().toString();
+                final String ExtraInfo = animalInfo.getText().toString();
+                final String Requirement = condition.getText().toString();
 
 
                 //한 칸이라도 입력 안했을 경우
                 if (Species.equals("") || Gender.equals("") || Weight.equals("") || Neutering.equals("") || Age.equals("") || Vaccination.equals("") ||
-                        Disease.equals("") || Deadline.equals("") || FindSpot.equals("") || AnimalInfo.equals("") ||
-                        Condition.equals("")) {
+                        Disease.equals("") || Deadline.equals("") || FindSpot.equals("") || ExtraInfo.equals("") ||
+                        Requirement.equals("")) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(AdoptAnimalUpload.this);
                     dialog = builder.setMessage("모두 입력해주세요.").setNegativeButton("확인", null).create();
                     dialog.show();
@@ -173,7 +156,7 @@ public class AdoptAnimalUpload extends AppCompatActivity {
                 };
                 //서버로 Volley를 이용해서 요청
                 adoptanimalupload_Request request = new adoptanimalupload_Request(encodeImageString, Species, Gender, Weight, Neutering, Age,
-                        Vaccination, Disease, Deadline, FindSpot, AnimalInfo, Condition, responseListener);
+                        Vaccination, Disease, Deadline, FindSpot, ExtraInfo, Requirement, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(AdoptAnimalUpload.this);
                 queue.add(request);
             }
@@ -196,7 +179,7 @@ public class AdoptAnimalUpload extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AnimalList.class);
+                Intent intent = new Intent(getApplicationContext(), AnimalListRecyclerFragment.class);
                 startActivity(intent);
             }
         });

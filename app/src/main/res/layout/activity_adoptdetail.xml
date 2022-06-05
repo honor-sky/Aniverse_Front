@@ -18,9 +18,9 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="125dp"
+            android:layout_marginStart="180dp"
             android:layout_marginTop="20dp"
-            android:text="입양동물 정보"
+            android:text="@string/Adopt"
             android:textColor="@color/white"
             android:textSize="25sp" />
 
@@ -31,7 +31,8 @@
             android:layout_marginStart="13dp"
             android:layout_marginTop="15dp"
             android:background="#00ff0000"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
+            android:contentDescription="@string/BACK" />
     </FrameLayout>
 
     <FrameLayout
@@ -47,6 +48,7 @@
             android:layout_height="300dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="25dp"
+            android:contentDescription="@string/Image"
             android:background="@drawable/round_squre_nocol"/>
         <ScrollView
             android:layout_width="361dp"
@@ -55,7 +57,7 @@
             android:layout_marginTop="330dp">
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <Space
                     android:layout_width="310dp"
@@ -64,7 +66,7 @@
                     android:id="@+id/animal_information"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="동물 정보"
+                    android:text="@string/AnimalInfo"
                     android:textColor="#7ED687"
                     android:textSize="24sp"
                     android:textStyle="bold">
@@ -78,7 +80,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="품종: 믹스   성별: 여    나이: 2세"
-                    android:textSize="20dp"></TextView>
+                    android:textSize="20sp"/>
 
                 <Space
                     android:layout_width="310dp"
@@ -87,8 +89,8 @@
                     android:id="@+id/neutering"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="중성화 여부: 무"
-                    android:textSize="20dp">
+                    android:text="@string/Neutering"
+                    android:textSize="20sp">
                 </TextView>
                 <Space
                     android:layout_width="310dp"
@@ -97,8 +99,8 @@
                     android:id="@+id/weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="무게 : 2kg"
-                    android:textSize="20dp">
+                    android:text="@string/Weight"
+                    android:textSize="20sp">
                 </TextView>
                 <Space
                     android:layout_width="310dp"
@@ -107,8 +109,8 @@
                     android:id="@+id/vaccination"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="접종 여부 : "
-                    android:textSize="20dp">
+                    android:text="@string/Vaccination"
+                    android:textSize="20sp">
                 </TextView>
                 <Space
                     android:layout_width="310dp"
@@ -117,8 +119,8 @@
                     android:id="@+id/disease"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="질병 여부 : "
-                    android:textSize="20dp">
+                    android:text="@string/Disease"
+                    android:textSize="20sp">
                 </TextView>
                 <Space
                     android:layout_width="310dp"
@@ -127,8 +129,8 @@
                     android:id="@+id/findSpot"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="발견 장소 : "
-                    android:textSize="20dp">
+                    android:text="@string/FindSpot"
+                    android:textSize="20sp">
                 </TextView>
                 <Space
                     android:layout_width="310dp"
@@ -137,8 +139,8 @@
                     android:id="@+id/animalInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="소개 : "
-                    android:textSize="20dp">
+                    android:text="@string/ExtraInfo"
+                    android:textSize="20sp">
                 </TextView>
                 <Space
                     android:layout_width="310dp"
@@ -147,8 +149,8 @@
                     android:id="@+id/deadline"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="입양신청 마감일 : "
-                    android:textSize="20dp">
+                    android:text="@string/Deadline"
+                    android:textSize="20sp">
                 </TextView>
                 <Space
                     android:layout_width="310dp"
@@ -157,8 +159,8 @@
                     android:id="@+id/adoptCondition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="입양 조건 : "
-                    android:textSize="20dp">
+                    android:text="@string/Requirement"
+                    android:textSize="20sp">
                 </TextView>
                 <Space
                     android:layout_width="310dp"
@@ -167,7 +169,7 @@
                     android:id="@+id/center_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="보호소 정보"
+                    android:text=""
                     android:textColor="#7ED687"
                     android:textSize="24sp"
                     android:textStyle="bold">
@@ -179,8 +181,8 @@
                     android:id="@+id/centerName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="센터명 : "
-                    android:textSize="20dp">
+                    android:text="@string/CenterName"
+                    android:textSize="20sp">
                 </TextView>
                 <Space
                     android:layout_width="310dp"
@@ -189,8 +191,8 @@
                     android:id="@+id/centerAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="센터 주소 : "
-                    android:textSize="20dp">
+                    android:text="@string/Center_Address"
+                    android:textSize="20sp">
                 </TextView>
                 <Space
                     android:layout_width="310dp"
@@ -199,8 +201,8 @@
                     android:id="@+id/centerPhoneNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="센터 전화번호 : "
-                    android:textSize="20dp">
+                    android:text="@string/Center_Phone"
+                    android:textSize="20sp">
                 </TextView>
 
 
@@ -220,7 +222,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:background="@drawable/gradient_round_squre"
-                android:text="신청하기"
+                android:text="@string/Apply"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
         </FrameLayout>

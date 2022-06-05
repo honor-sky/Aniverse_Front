@@ -21,7 +21,7 @@ public class GuardApplyConfirm extends AppCompatActivity {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AnimalList.class);
+                Intent intent = new Intent(getApplicationContext(), AnimalListRecyclerFragment.class);
 
                 startActivity(intent);
             }

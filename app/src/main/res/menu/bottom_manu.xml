@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/adopt_btn"
+        android:enabled="true"
+        android:icon="@drawable/ic_adopt_icon"
+        android:onClick=""
+        android:title="입양"/>
+
+    <item
+        android:id="@+id/funding_btn"
+        android:enabled="true"
+        android:icon="@drawable/ic_funding_icon"
+        android:title="펀딩"/>
+
+    <item
+        android:id="@+id/home_btn"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_pets_24"
+        android:title="홈"/>
+    <item
+        android:id="@+id/market_btn"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:title="마켓"/>
+  <!--  <item
+        android:id="@+id/mypage_btn"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="마이페이지"/>-->
+
+</menu>

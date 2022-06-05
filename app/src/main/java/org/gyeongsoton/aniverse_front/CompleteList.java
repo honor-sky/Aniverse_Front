@@ -35,35 +35,17 @@ public class CompleteList extends Fragment {
     String animalImage,animalSpecies,animalAge; //입양완료 띄우는거
     private static int adoptListIdx;
     private Map<Object,Integer> items = new HashMap<>();
-    //AnimalList animalList;
     TableLayout tablelayout;
     TableRow tableRow;
 
-    //프래그먼트를 액티비티 위에 올린다.
-/*    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        animalList = (AnimalList) getActivity();
-        System.out.println("완료: onAttach 실행");
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        System.out.println("완료: onDestroyView 실행");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        System.out.println("완료: onDestroy 실행");
-    }*/
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
+        //xml 인플레이터 속도
         ViewGroup view= (ViewGroup) inflater.inflate(R.layout.fragment_completelist, container, false);
+        //xml 인플레이터 속도
         System.out.println("완료: onCreateView 실행");
 
         Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler());//예외처리 핸들러
@@ -79,6 +61,7 @@ public class CompleteList extends Fragment {
                     boolean success = jsonResponse.getBoolean("isSuccess"); //reponse 제대로 왔는지 확
 
                     if (success) {
+                        //수신 time 출력
 
                         //데이터 배열 전체 파싱
                         JSONArray respArr = (JSONArray) jsonResponse.get("adoptListRows");

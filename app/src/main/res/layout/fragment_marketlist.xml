@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background2"
+    android:orientation="vertical"
+    tools:context=".MarketList">
+
+
+    <Button
+        android:id="@+id/item_add_btn"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="325dp"
+        android:layout_marginTop="10dp"
+        android:background="#00FFFFFF"
+        android:gravity="center"
+        android:text="+"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="25dp"
+        android:text="Market / 마켓"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="640dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/top_round_wsquare"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab"
+            android:layout_width="380dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center">
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/marketViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="550dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/main_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="720dp"
+        android:background="@android:color/white">
+
+        <ImageButton
+            android:id="@+id/adopt_btn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:background="#00ffffff"
+            app:srcCompat="@drawable/ic_adopt_icon" />
+
+        <ImageButton
+            android:id="@+id/funding_btn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="100dp"
+            android:background="#00ffffff"
+            app:srcCompat="@drawable/ic_funding_icon" />
+
+        <ImageButton
+            android:id="@+id/home_btn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="180dp"
+            android:background="#00ffffff"
+            app:srcCompat="@drawable/ic_baseline_pets_24"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ImageButton
+            android:id="@+id/market_btn"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="260dp"
+            android:layout_marginTop="4dp"
+            android:background="#00ffffff"
+            app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+
+        <ImageButton
+            android:id="@+id/mypage_btn"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="330dp"
+            android:layout_marginTop="4dp"
+            android:background="#00ffffff"
+            app:srcCompat="@drawable/ic_baseline_person_24" />
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+</FrameLayout>

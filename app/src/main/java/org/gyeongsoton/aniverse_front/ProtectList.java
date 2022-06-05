@@ -41,24 +41,6 @@ public class ProtectList extends Fragment {
     TableLayout tablelayout;
     TableRow tableRow;
 
-/*    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        animalList = (AnimalList) getActivity();
-        System.out.println("임시보호: onAttach 실행");
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        System.out.println("임시보호: onDestroyView 실행");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        System.out.println("임시보호: onDestroy 실행");
-    }*/
 
     @Nullable
     @Override
